@@ -1,0 +1,3 @@
+/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/edit_cache.dir
+/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/rebuild_cache.dir
+/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/big_integer_testing.dir
