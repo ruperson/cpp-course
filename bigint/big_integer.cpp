@@ -5,7 +5,7 @@
 #include <assert.h>
 
 
-const std::vector <int32_t> POW10 = { 1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000 };
+const std::vector <int32_t> pow10 = { 1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000 };
 const ui MAX10 = std::numeric_limits<ui>::digits10;
 const ui DIGIT_MASK = std::numeric_limits<ui>().max();
 const ull BASE = static_cast<ull>(DIGIT_MASK) + 1;
@@ -17,8 +17,8 @@ big_integer abs(big_integer a) {
 }
 
 //void swap(big_integer &a, big_integer &b) {
-//	std::swap(a.digits, b.digits);
-//	std::swap(a.sign, b.sign);
+//  std::swap(a.digits, b.digits);
+//  std::swap(a.sign, b.sign);
 //}
 
 void big_integer::erase_zeros() {
@@ -45,7 +45,7 @@ big_integer::big_integer(big_integer const& other) = default;
 big_integer& big_integer::operator=(big_integer const& other) = default;
 
 big_integer::big_integer() :
-        digits({0}), sign(false) {
+    digits({ 0 }), sign(false) {
 }
 big_integer::big_integer(int32_t a) {
     sign = (a < 0);
@@ -56,14 +56,14 @@ big_integer::big_integer(ui a) {
     digits.push_back(a);
 }
 
-big_integer::big_integer(std::string const& str) {
+big_integer::big_integer(std::string const& str): big_integer() {
     for (size_t i = (str[0] == '-') ? 1 : 0; i < str.size(); i += MAX10) {
         if (i + MAX10 < str.size()) {
-            *this *= POW10.back();
+            *this *= pow10.back();
             *this += std::stoi(str.substr(i, MAX10));
         }
         else {
-            *this *= POW10[ str.size() - i];
+            *this *= pow10[str.size() - i];
             *this += std::stoi(str.substr(i, str.size() - i));
         }
     }
@@ -74,8 +74,6 @@ big_integer::big_integer(std::string const& str) {
 big_integer& big_integer::operator+=(big_integer const& rhs) {
     bool carry = 0;
     if (sign == rhs.sign) {
-        sign = false;
-
         for (size_t i = 0; i < std::max(digits.size(), rhs.digits.size()) || carry; ++i) {
             if (i == digits.size())
                 digits.push_back(0);
@@ -155,7 +153,7 @@ big_integer& big_integer::operator*=(big_integer const& rhs) {
 }
 big_integer &big_integer::operator/=(big_integer const &rh) {
     big_integer rhs = rh;
-    if (*this == 0 || abs(*this) < abs(rhs)) return *this  = 0;
+    if (*this == 0 || abs(*this) < abs(rhs)) return *this = 0;
     bool final_sign = (sign != rhs.sign);
     sign = rhs.sign = false;
     if (rhs.digits.size() == 1) {
@@ -180,7 +178,7 @@ big_integer &big_integer::operator/=(big_integer const &rh) {
             rem_highest += remainder.digits[remainder.digits.size() - 2];
         }
 
-        ui quotient = rem_highest / rhs.digits.back();				//quotient selection step
+        ui quotient = rem_highest / rhs.digits.back();
         remainder -= rhs * quotient;
         while (remainder < 0) {
             quotient--;
@@ -247,7 +245,7 @@ big_integer &big_integer::logical_operation(big_integer const &rhs, T const &op)
         if (i == digits.size()) digits.push_back(lwn ? DIGIT_MASK : 0);
         digits[i] = op(digits[i], i < rh.digits.size() ? rh.digits[i] : rwn ? DIGIT_MASK : 0);
     }
-    if (op(lwn , rwn))
+    if (op(lwn, rwn))
         to_sign_magnitude();
     return *this;
 }
@@ -377,12 +375,12 @@ bool operator>=(big_integer const& a, big_integer const& b) { return !(a < b); }
 std::string to_string(big_integer a) {
     a.erase_zeros();
     std::string ans;
-    while (abs(a) >= POW10[MAX10]) {
-        std::string block = std::to_string((a % POW10[MAX10]).digits[0]);
+    while (abs(a) >= pow10[MAX10]) {
+        std::string block = std::to_string((a % pow10[MAX10]).digits[0]);
         std::reverse(block.begin(), block.end());
         while (block.size() < MAX10) block.push_back('0');
         ans.append(block);
-        a /= POW10[MAX10];
+        a /= pow10[MAX10];
     }
     std::string last = std::to_string(a.digits[0]);
     std::reverse(last.begin(), last.end());
