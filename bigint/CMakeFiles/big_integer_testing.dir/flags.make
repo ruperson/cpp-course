@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall -std=c++14 -pedantic --coverage
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ruperson/Desktop/cpp-course/bigint 
+CXX_INCLUDES = -I/home/ruperson/Desktop/cpp-course/cpp-course/bigint 
 

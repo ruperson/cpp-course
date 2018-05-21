@@ -31,18 +31,18 @@
             <td class="headerValue">cov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">259</td>
-            <td class="headerCovTableEntry">266</td>
-            <td class="headerCovTableEntryHi">97.4 %</td>
+            <td class="headerCovTableEntry">256</td>
+            <td class="headerCovTableEntry">265</td>
+            <td class="headerCovTableEntryHi">96.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-05-21 17:25:22</td>
+            <td class="headerValue">2018-05-21 20:25:31</td>
             <td></td>
             <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">47</td>
             <td class="headerCovTableEntry">48</td>
-            <td class="headerCovTableEntry">48</td>
-            <td class="headerCovTableEntryHi">100.0 %</td>
+            <td class="headerCovTableEntryHi">97.9 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -67,396 +67,394 @@
 <span class="lineNum">       5 </span>            : #include &lt;assert.h&gt;
 <span class="lineNum">       6 </span>            : 
 <span class="lineNum">       7 </span>            : 
-<span class="lineNum">       8 </span><span class="lineCov">         10 : const std::vector &lt;int32_t&gt; POW10 = { 1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000 };</span>
+<span class="lineNum">       8 </span><span class="lineCov">          1 : const std::vector &lt;int32_t&gt; POW10 = { 1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000 };</span>
 <span class="lineNum">       9 </span>            : const ui MAX10 = std::numeric_limits&lt;ui&gt;::digits10;
 <span class="lineNum">      10 </span>            : const ui DIGIT_MASK = std::numeric_limits&lt;ui&gt;().max();
 <span class="lineNum">      11 </span>            : const ull BASE = static_cast&lt;ull&gt;(DIGIT_MASK) + 1;
 <a name="12"><span class="lineNum">      12 </span>            : const ui BITS_IN_BASE = std::numeric_limits&lt;ui&gt;::digits;</a>
 <span class="lineNum">      13 </span>            : 
-<span class="lineNum">      14 </span><span class="lineCov">    1199711 : big_integer abs(big_integer a) {</span>
-<span class="lineNum">      15 </span><span class="lineCov">    1199711 :     a.sign = false;</span>
-<span class="lineNum">      16 </span><span class="lineCov">    1199711 :     return a;</span>
+<span class="lineNum">      14 </span><span class="lineCov">     119970 : big_integer abs(big_integer a) {</span>
+<span class="lineNum">      15 </span><span class="lineCov">     119970 :     a.sign = false;</span>
+<span class="lineNum">      16 </span><span class="lineCov">     119970 :     return a;</span>
 <span class="lineNum">      17 </span>            : }
 <span class="lineNum">      18 </span>            : 
 <span class="lineNum">      19 </span>            : //void swap(big_integer &amp;a, big_integer &amp;b) {
-<span class="lineNum">      20 </span>            : //      std::swap(a.digits, b.digits);
-<span class="lineNum">      21 </span>            : //      std::swap(a.sign, b.sign);
+<span class="lineNum">      20 </span>            : //  std::swap(a.digits, b.digits);
+<span class="lineNum">      21 </span>            : //  std::swap(a.sign, b.sign);
 <a name="22"><span class="lineNum">      22 </span>            : //}</a>
 <span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span><span class="lineCov">   32333294 : void big_integer::erase_zeros() {</span>
-<span class="lineNum">      25 </span><span class="lineCov">   51081684 :     while (digits.size() &gt; 1 &amp;&amp; digits.back() == 0)</span>
-<span class="lineNum">      26 </span><span class="lineCov">   18748390 :         digits.pop_back();</span>
-<span class="lineNum">      27 </span><span class="lineCov">   13584904 :     if (digits.size() == 1 &amp;&amp; digits.back() == 0)</span>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">     674113 :         sign = false;</span></a>
-<span class="lineNum">      29 </span><span class="lineCov">   13584904 : }</span>
-<span class="lineNum">      30 </span><span class="lineCov">         70 : void big_integer::to_twos_compliment() {</span>
-<span class="lineNum">      31 </span><span class="lineCov">         70 :     if (!sign) return;</span>
-<span class="lineNum">      32 </span><span class="lineCov">         70 :     for (auto &amp;x : digits) x = ~x;</span>
-<span class="lineNum">      33 </span><span class="lineCov">         70 :     sign = false;</span>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">         70 :     *this += 1;</span></a>
+<span class="lineNum">      24 </span><span class="lineCov">    3233370 : void big_integer::erase_zeros() {</span>
+<span class="lineNum">      25 </span><span class="lineCov">    5108250 :     while (digits.size() &gt; 1 &amp;&amp; digits.back() == 0)</span>
+<span class="lineNum">      26 </span><span class="lineCov">    1874880 :         digits.pop_back();</span>
+<span class="lineNum">      27 </span><span class="lineCov">    1358490 :     if (digits.size() == 1 &amp;&amp; digits.back() == 0)</span>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">      67411 :         sign = false;</span></a>
+<span class="lineNum">      29 </span><span class="lineCov">    1358490 : }</span>
+<span class="lineNum">      30 </span><span class="lineCov">          7 : void big_integer::to_twos_compliment() {</span>
+<span class="lineNum">      31 </span><span class="lineCov">          7 :     if (!sign) return;</span>
+<span class="lineNum">      32 </span><span class="lineCov">          7 :     for (auto &amp;x : digits) x = ~x;</span>
+<span class="lineNum">      33 </span><span class="lineCov">          7 :     sign = false;</span>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">          7 :     *this += 1;</span></a>
 <span class="lineNum">      35 </span>            : }
-<span class="lineNum">      36 </span><span class="lineCov">         40 : void big_integer::to_sign_magnitude() {</span>
-<span class="lineNum">      37 </span><span class="lineCov">         40 :     if (sign) return;</span>
-<span class="lineNum">      38 </span><span class="lineCov">         40 :     *this -= 1;</span>
-<span class="lineNum">      39 </span><span class="lineCov">         40 :     for (auto &amp;x : digits) x = ~x;</span>
-<span class="lineNum">      40 </span><span class="lineCov">         40 :     sign = true;</span>
+<span class="lineNum">      36 </span><span class="lineCov">          4 : void big_integer::to_sign_magnitude() {</span>
+<span class="lineNum">      37 </span><span class="lineCov">          4 :     if (sign) return;</span>
+<span class="lineNum">      38 </span><span class="lineCov">          4 :     *this -= 1;</span>
+<span class="lineNum">      39 </span><span class="lineCov">          4 :     for (auto &amp;x : digits) x = ~x;</span>
+<span class="lineNum">      40 </span><span class="lineCov">          4 :     sign = true;</span>
 <span class="lineNum">      41 </span>            : }
 <span class="lineNum">      42 </span>            : 
 <span class="lineNum">      43 </span>            : big_integer::~big_integer() = default;
 <span class="lineNum">      44 </span>            : big_integer::big_integer(big_integer const&amp; other) = default;
 <a name="45"><span class="lineNum">      45 </span>            : big_integer&amp; big_integer::operator=(big_integer const&amp; other) = default;</a>
 <span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span><span class="lineCov">    1098400 : big_integer::big_integer() :</span>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">    1098400 :         digits({0}), sign(false) {</span></a>
-<span class="lineNum">      49 </span><span class="lineCov">    1098400 : }</span>
-<span class="lineNum">      50 </span><span class="lineCov">   17540509 : big_integer::big_integer(int32_t a) {</span>
-<span class="lineNum">      51 </span><span class="lineCov">   17540509 :     sign = (a &lt; 0);</span>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">   17540509 :     digits.push_back(static_cast&lt;ui&gt;(std::abs(a)));</span></a>
-<span class="lineNum">      53 </span><span class="lineCov">   17540509 : }</span>
-<span class="lineNum">      54 </span><span class="lineCov">    6416340 : big_integer::big_integer(ui a) {</span>
-<span class="lineNum">      55 </span><span class="lineCov">    6416340 :     sign = false;</span>
-<span class="lineNum">      56 </span><span class="lineCov">    6416340 :     digits.push_back(a);</span>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">    6416340 : }</span></a>
+<span class="lineNum">      47 </span><span class="lineCov">     109881 : big_integer::big_integer() :</span>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     109881 :     digits({ 0 }), sign(false) {</span></a>
+<span class="lineNum">      49 </span><span class="lineCov">     109881 : }</span>
+<span class="lineNum">      50 </span><span class="lineCov">    1754057 : big_integer::big_integer(int32_t a) {</span>
+<span class="lineNum">      51 </span><span class="lineCov">    1754057 :     sign = (a &lt; 0);</span>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">    1754057 :     digits.push_back(static_cast&lt;ui&gt;(std::abs(a)));</span></a>
+<span class="lineNum">      53 </span><span class="lineCov">    1754057 : }</span>
+<span class="lineNum">      54 </span><span class="lineCov">     641634 : big_integer::big_integer(ui a) {</span>
+<span class="lineNum">      55 </span><span class="lineCov">     641634 :     sign = false;</span>
+<span class="lineNum">      56 </span><span class="lineCov">     641634 :     digits.push_back(a);</span>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">     641634 : }</span></a>
 <span class="lineNum">      58 </span>            : 
-<span class="lineNum">      59 </span><span class="lineCov">        410 : big_integer::big_integer(std::string const&amp; str) {</span>
-<span class="lineNum">      60 </span><span class="lineCov">       3240 :     for (size_t i = (str[0] == '-') ? 1 : 0; i &lt; str.size(); i += MAX10) {</span>
-<span class="lineNum">      61 </span><span class="lineCov">       2830 :         if (i + MAX10 &lt; str.size()) {</span>
-<span class="lineNum">      62 </span><span class="lineCov">       2420 :             *this *= POW10.back();</span>
-<span class="lineNum">      63 </span><span class="lineCov">       2420 :             *this += std::stoi(str.substr(i, MAX10));</span>
+<span class="lineNum">      59 </span><span class="lineCov">         41 : big_integer::big_integer(std::string const&amp; str): big_integer() {</span>
+<span class="lineNum">      60 </span><span class="lineCov">        324 :     for (size_t i = (str[0] == '-') ? 1 : 0; i &lt; str.size(); i += MAX10) {</span>
+<span class="lineNum">      61 </span><span class="lineCov">        283 :         if (i + MAX10 &lt; str.size()) {</span>
+<span class="lineNum">      62 </span><span class="lineCov">        242 :             *this *= POW10.back();</span>
+<span class="lineNum">      63 </span><span class="lineCov">        242 :             *this += std::stoi(str.substr(i, MAX10));</span>
 <span class="lineNum">      64 </span>            :         }
 <span class="lineNum">      65 </span>            :         else {
-<span class="lineNum">      66 </span><span class="lineCov">        410 :             *this *= POW10[ str.size() - i];</span>
-<span class="lineNum">      67 </span><span class="lineCov">        410 :             *this += std::stoi(str.substr(i, str.size() - i));</span>
+<span class="lineNum">      66 </span><span class="lineCov">         41 :             *this *= POW10[str.size() - i];</span>
+<span class="lineNum">      67 </span><span class="lineCov">         41 :             *this += std::stoi(str.substr(i, str.size() - i));</span>
 <span class="lineNum">      68 </span>            :         }
 <span class="lineNum">      69 </span>            :     }
-<span class="lineNum">      70 </span><span class="lineCov">        410 :     sign = (str[0] == '-');</span>
-<span class="lineNum">      71 </span><span class="lineCov">        410 : }</span>
+<span class="lineNum">      70 </span><span class="lineCov">         41 :     sign = (str[0] == '-');</span>
+<span class="lineNum">      71 </span><span class="lineCov">         41 : }</span>
 <a name="72"><span class="lineNum">      72 </span>            : </a>
 <span class="lineNum">      73 </span>            : 
-<span class="lineNum">      74 </span><span class="lineCov">    8814527 : big_integer&amp; big_integer::operator+=(big_integer const&amp; rhs) {</span>
-<span class="lineNum">      75 </span><span class="lineCov">    8814527 :     bool carry = 0;</span>
-<span class="lineNum">      76 </span><span class="lineCov">    8814527 :     if (sign == rhs.sign) {</span>
-<span class="lineNum">      77 </span><span class="lineCov">    5247967 :         sign = false;</span>
-<span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span><span class="lineCov">  185826364 :         for (size_t i = 0; i &lt; std::max(digits.size(), rhs.digits.size()) || carry; ++i) {</span>
-<span class="lineNum">      80 </span><span class="lineCov">  180578397 :             if (i == digits.size())</span>
-<span class="lineNum">      81 </span><span class="lineCov">         50 :                 digits.push_back(0);</span>
-<span class="lineNum">      82 </span><span class="lineCov">  180578397 :             ull res = 1ull * digits[i] + carry + (i &lt; rhs.digits.size() ? rhs.digits[i] : 0);</span>
-<span class="lineNum">      83 </span><span class="lineCov">  180578397 :             carry = res &gt;= BASE;</span>
-<span class="lineNum">      84 </span><span class="lineCov">  180578397 :             if (carry)  res -= BASE;</span>
-<span class="lineNum">      85 </span><span class="lineCov">  180578397 :             digits[i] = static_cast &lt;ui&gt;(res);</span>
-<span class="lineNum">      86 </span>            :         }
-<span class="lineNum">      87 </span><span class="lineCov">    5247967 :         return *this;</span>
-<span class="lineNum">      88 </span>            :     }
-<span class="lineNum">      89 </span><span class="lineCov">    3566560 :     else if (sign) {</span>
-<span class="lineNum">      90 </span><span class="lineCov">     594950 :         return *this -= -rhs;</span>
-<span class="lineNum">      91 </span>            :     }
-<span class="lineNum">      92 </span>            :     else {
-<span class="lineNum">      93 </span><span class="lineCov">    2971610 :         *this = -*this;</span>
-<span class="lineNum">      94 </span><span class="lineCov">    2971610 :         *this -= rhs;</span>
-<span class="lineNum">      95 </span><span class="lineCov">    2971610 :         return *this = -*this;</span>
-<span class="lineNum">      96 </span>            :     }
-<span class="lineNum">      97 </span>            : 
-<a name="98"><span class="lineNum">      98 </span>            : </a>
-<span class="lineNum">      99 </span>            : }
-<span class="lineNum">     100 </span><span class="lineCov">    8160960 : big_integer&amp; big_integer::operator-=(big_integer const&amp; rhs) {</span>
-<span class="lineNum">     101 </span><span class="lineCov">    8160960 :     if (!rhs.sign) {</span>
-<span class="lineNum">     102 </span><span class="lineCov">    3408386 :         return *this += -rhs;</span>
-<span class="lineNum">     103 </span>            :     }
-<span class="lineNum">     104 </span>            : 
-<span class="lineNum">     105 </span><span class="lineCov">    4752574 :     if (!sign) {</span>
-<span class="lineNum">     106 </span><span class="lineCov">          1 :         *this = (-*this);</span>
-<span class="lineNum">     107 </span><span class="lineCov">          1 :         *this += rhs;</span>
-<span class="lineNum">     108 </span><span class="lineCov">          1 :         return *this = (-*this);</span>
-<span class="lineNum">     109 </span>            :     }
-<span class="lineNum">     110 </span><span class="lineCov">    4752573 :     else if (*this &gt; rhs) {</span>
-<span class="lineNum">     111 </span><span class="lineCov">    2371940 :         big_integer res = rhs;</span>
-<span class="lineNum">     112 </span><span class="lineCov">    1185970 :         res -= *this;</span>
-<span class="lineNum">     113 </span><span class="lineCov">    1185970 :         return *this = -res;</span>
-<span class="lineNum">     114 </span>            :     }
-<span class="lineNum">     115 </span>            :     else {
-<span class="lineNum">     116 </span><span class="lineCov">    3566603 :         bool carry = 0;</span>
-<span class="lineNum">     117 </span><span class="lineCov">  214202556 :         for (size_t i = 0; i &lt; rhs.digits.size() || carry; ++i) {</span>
-<span class="lineNum">     118 </span><span class="lineCov">  210635953 :             ull res = static_cast&lt;ull&gt;(digits[i]);</span>
-<span class="lineNum">     119 </span><span class="lineCov">  210635953 :             ull subs = 1ull * carry + (i &lt; rhs.digits.size() ? rhs.digits[i] : 0);</span>
-<span class="lineNum">     120 </span><span class="lineCov">  210635953 :             carry = (res &lt; subs);</span>
-<span class="lineNum">     121 </span><span class="lineCov">  210635953 :             if (carry)  res += (BASE - subs);</span>
-<span class="lineNum">     122 </span><span class="lineCov">  109452413 :             else res -= subs;</span>
-<span class="lineNum">     123 </span><span class="lineCov">  210635953 :             digits[i] = static_cast &lt;ui&gt;(res);</span>
-<span class="lineNum">     124 </span>            :         }
-<span class="lineNum">     125 </span><span class="lineCov">    3566603 :         erase_zeros();</span>
-<span class="lineNum">     126 </span><span class="lineCov">    3566603 :         return *this;</span>
-<span class="lineNum">     127 </span>            :     }
-<a name="128"><span class="lineNum">     128 </span>            : </a>
-<span class="lineNum">     129 </span>            : }
-<span class="lineNum">     130 </span><span class="lineCov">    3608160 : big_integer&amp; big_integer::operator*=(big_integer const&amp; rhs) {</span>
-<span class="lineNum">     131 </span>            : 
-<span class="lineNum">     132 </span><span class="lineCov">    3608160 :     bool final_sign = (sign != rhs.sign);</span>
-<span class="lineNum">     133 </span><span class="lineCov">    3608160 :     if (rhs.digits.size() == 1) {</span>
-<span class="lineNum">     134 </span><span class="lineCov">    3309040 :         *this *= rhs.digits[0];</span>
-<span class="lineNum">     135 </span><span class="lineCov">    3309040 :         sign = final_sign;</span>
-<span class="lineNum">     136 </span><span class="lineCov">    3309040 :         return *this;</span>
-<span class="lineNum">     137 </span>            :     }
+<span class="lineNum">      74 </span><span class="lineCov">     881454 : big_integer&amp; big_integer::operator+=(big_integer const&amp; rhs) {</span>
+<span class="lineNum">      75 </span><span class="lineCov">     881454 :     bool carry = 0;</span>
+<span class="lineNum">      76 </span><span class="lineCov">     881454 :     if (sign == rhs.sign) {</span>
+<span class="lineNum">      77 </span><span class="lineCov">   18582639 :         for (size_t i = 0; i &lt; std::max(digits.size(), rhs.digits.size()) || carry; ++i) {</span>
+<span class="lineNum">      78 </span><span class="lineCov">   18057841 :             if (i == digits.size())</span>
+<span class="lineNum">      79 </span><span class="lineCov">          5 :                 digits.push_back(0);</span>
+<span class="lineNum">      80 </span><span class="lineCov">   18057841 :             ull res = 1ull * digits[i] + carry + (i &lt; rhs.digits.size() ? rhs.digits[i] : 0);</span>
+<span class="lineNum">      81 </span><span class="lineCov">   18057841 :             carry = res &gt;= BASE;</span>
+<span class="lineNum">      82 </span><span class="lineCov">   18057841 :             if (carry)  res -= BASE;</span>
+<span class="lineNum">      83 </span><span class="lineCov">   18057841 :             digits[i] = static_cast &lt;ui&gt;(res);</span>
+<span class="lineNum">      84 </span>            :         }
+<span class="lineNum">      85 </span><span class="lineCov">     524798 :         return *this;</span>
+<span class="lineNum">      86 </span>            :     }
+<span class="lineNum">      87 </span><span class="lineCov">     356656 :     else if (sign) {</span>
+<span class="lineNum">      88 </span><span class="lineCov">      59495 :         return *this -= -rhs;</span>
+<span class="lineNum">      89 </span>            :     }
+<span class="lineNum">      90 </span>            :     else {
+<span class="lineNum">      91 </span><span class="lineCov">     297161 :         *this = -*this;</span>
+<span class="lineNum">      92 </span><span class="lineCov">     297161 :         *this -= rhs;</span>
+<span class="lineNum">      93 </span><span class="lineCov">     297161 :         return *this = -*this;</span>
+<span class="lineNum">      94 </span>            :     }
+<span class="lineNum">      95 </span>            : 
+<a name="96"><span class="lineNum">      96 </span>            : </a>
+<span class="lineNum">      97 </span>            : }
+<span class="lineNum">      98 </span><span class="lineCov">     816097 : big_integer&amp; big_integer::operator-=(big_integer const&amp; rhs) {</span>
+<span class="lineNum">      99 </span><span class="lineCov">     816097 :     if (!rhs.sign) {</span>
+<span class="lineNum">     100 </span><span class="lineCov">     340839 :         return *this += -rhs;</span>
+<span class="lineNum">     101 </span>            :     }
+<span class="lineNum">     102 </span>            : 
+<span class="lineNum">     103 </span><span class="lineCov">     475258 :     if (!sign) {</span>
+<span class="lineNum">     104 </span><span class="lineCov">          1 :         *this = (-*this);</span>
+<span class="lineNum">     105 </span><span class="lineCov">          1 :         *this += rhs;</span>
+<span class="lineNum">     106 </span><span class="lineCov">          1 :         return *this = (-*this);</span>
+<span class="lineNum">     107 </span>            :     }
+<span class="lineNum">     108 </span><span class="lineCov">     475257 :     else if (*this &gt; rhs) {</span>
+<span class="lineNum">     109 </span><span class="lineCov">     237194 :         big_integer res = rhs;</span>
+<span class="lineNum">     110 </span><span class="lineCov">     118597 :         res -= *this;</span>
+<span class="lineNum">     111 </span><span class="lineCov">     118597 :         return *this = -res;</span>
+<span class="lineNum">     112 </span>            :     }
+<span class="lineNum">     113 </span>            :     else {
+<span class="lineNum">     114 </span><span class="lineCov">     356660 :         bool carry = 0;</span>
+<span class="lineNum">     115 </span><span class="lineCov">   21420255 :         for (size_t i = 0; i &lt; rhs.digits.size() || carry; ++i) {</span>
+<span class="lineNum">     116 </span><span class="lineCov">   21063595 :             ull res = static_cast&lt;ull&gt;(digits[i]);</span>
+<span class="lineNum">     117 </span><span class="lineCov">   21063595 :             ull subs = 1ull * carry + (i &lt; rhs.digits.size() ? rhs.digits[i] : 0);</span>
+<span class="lineNum">     118 </span><span class="lineCov">   21063595 :             carry = (res &lt; subs);</span>
+<span class="lineNum">     119 </span><span class="lineCov">   21063595 :             if (carry)  res += (BASE - subs);</span>
+<span class="lineNum">     120 </span><span class="lineCov">   10945241 :             else res -= subs;</span>
+<span class="lineNum">     121 </span><span class="lineCov">   21063595 :             digits[i] = static_cast &lt;ui&gt;(res);</span>
+<span class="lineNum">     122 </span>            :         }
+<span class="lineNum">     123 </span><span class="lineCov">     356660 :         erase_zeros();</span>
+<span class="lineNum">     124 </span><span class="lineCov">     356660 :         return *this;</span>
+<span class="lineNum">     125 </span>            :     }
+<a name="126"><span class="lineNum">     126 </span>            : </a>
+<span class="lineNum">     127 </span>            : }
+<span class="lineNum">     128 </span><span class="lineCov">     360816 : big_integer&amp; big_integer::operator*=(big_integer const&amp; rhs) {</span>
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span><span class="lineCov">     360816 :     bool final_sign = (sign != rhs.sign);</span>
+<span class="lineNum">     131 </span><span class="lineCov">     360816 :     if (rhs.digits.size() == 1) {</span>
+<span class="lineNum">     132 </span><span class="lineCov">     330904 :         *this *= rhs.digits[0];</span>
+<span class="lineNum">     133 </span><span class="lineCov">     330904 :         sign = final_sign;</span>
+<span class="lineNum">     134 </span><span class="lineCov">     330904 :         return *this;</span>
+<span class="lineNum">     135 </span>            :     }
+<span class="lineNum">     136 </span>            : 
+<span class="lineNum">     137 </span>            : 
 <span class="lineNum">     138 </span>            : 
-<span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span>            : 
-<span class="lineNum">     141 </span><span class="lineCov">     598240 :     big_integer res;</span>
-<span class="lineNum">     142 </span><span class="lineCov">     299120 :     res.digits.resize(digits.size() + rhs.digits.size());</span>
-<span class="lineNum">     143 </span>            : 
-<span class="lineNum">     144 </span><span class="lineCov">    2043990 :     for (size_t i = 0; i &lt; digits.size(); ++i) {</span>
-<span class="lineNum">     145 </span><span class="lineCov">   89352010 :         for (size_t j = 0, carry = 0; j &lt; rhs.digits.size() || carry; ++j) {</span>
-<span class="lineNum">     146 </span><span class="lineCov">   87607140 :             ull cur = res.digits[i + j] + digits[i] * 1ull * (j &lt; rhs.digits.size() ? rhs.digits[j] : 0) + carry;</span>
-<span class="lineNum">     147 </span><span class="lineCov">   87607140 :             res.digits[i + j] = cur &amp; DIGIT_MASK;</span>
-<span class="lineNum">     148 </span><span class="lineCov">   87607140 :             carry = cur &gt;&gt; BITS_IN_BASE;</span>
-<span class="lineNum">     149 </span>            :         }
-<span class="lineNum">     150 </span>            :     }
-<span class="lineNum">     151 </span>            : 
-<span class="lineNum">     152 </span><span class="lineCov">     299120 :     res.sign = final_sign;</span>
-<span class="lineNum">     153 </span><span class="lineCov">     299120 :     res.erase_zeros();</span>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">     299120 :     return *this = res;</span></a>
-<span class="lineNum">     155 </span>            : }
-<span class="lineNum">     156 </span><span class="lineCov">     599820 : big_integer &amp;big_integer::operator/=(big_integer const &amp;rh) {</span>
-<span class="lineNum">     157 </span><span class="lineCov">    1199640 :     big_integer rhs = rh;</span>
-<span class="lineNum">     158 </span><span class="lineCov">     599820 :     if (*this == 0 || abs(*this) &lt; abs(rhs)) return *this  = 0;</span>
-<span class="lineNum">     159 </span><span class="lineCov">     599820 :     bool final_sign = (sign != rhs.sign);</span>
-<span class="lineNum">     160 </span><span class="lineCov">     599820 :     sign = rhs.sign = false;</span>
-<span class="lineNum">     161 </span><span class="lineCov">     599820 :     if (rhs.digits.size() == 1) {</span>
-<span class="lineNum">     162 </span><span class="lineCov">     200190 :         *this /= rhs.digits[0];</span>
-<span class="lineNum">     163 </span><span class="lineCov">     200190 :         sign = final_sign;</span>
-<span class="lineNum">     164 </span><span class="lineCov">     200190 :         return *this;</span>
-<span class="lineNum">     165 </span>            :     }
-<span class="lineNum">     166 </span><span class="lineCov">     399630 :     ui normalization = static_cast&lt;ui&gt;(BASE / (rhs.digits.back() + 1));</span>
-<span class="lineNum">     167 </span><span class="lineCov">     399630 :     *this *= normalization;</span>
-<span class="lineNum">     168 </span><span class="lineCov">     399630 :     rhs *= normalization;</span>
-<span class="lineNum">     169 </span><span class="lineCov">     799260 :     big_integer result;</span>
-<span class="lineNum">     170 </span><span class="lineCov">     399630 :     result.digits.resize(digits.size() - rhs.digits.size() + 1);</span>
-<span class="lineNum">     171 </span><span class="lineCov">     799260 :     big_integer remainder;</span>
-<span class="lineNum">     172 </span><span class="lineCov">     399630 :     remainder.digits.assign(digits.end() - rhs.digits.size() + 1, digits.end());</span>
-<span class="lineNum">     173 </span>            : 
-<span class="lineNum">     174 </span><span class="lineCov">    3607800 :     for (size_t i = result.digits.size() - 1; i &lt; result.digits.size(); --i) {</span>
-<span class="lineNum">     175 </span><span class="lineCov">    3208170 :         remainder &lt;&lt;= BITS_IN_BASE;</span>
-<span class="lineNum">     176 </span><span class="lineCov">    3208170 :         remainder += digits[i];</span>
-<span class="lineNum">     177 </span><span class="lineCov">    3208170 :         ull rem_highest = remainder.digits.back();</span>
-<span class="lineNum">     178 </span><span class="lineCov">    3208170 :         if (remainder.digits.size() &gt; rhs.digits.size()) {</span>
-<span class="lineNum">     179 </span><span class="lineCov">    2771320 :             rem_highest &lt;&lt;= BITS_IN_BASE;</span>
-<span class="lineNum">     180 </span><span class="lineCov">    2771320 :             rem_highest += remainder.digits[remainder.digits.size() - 2];</span>
-<span class="lineNum">     181 </span>            :         }
-<span class="lineNum">     182 </span>            : 
-<span class="lineNum">     183 </span><span class="lineCov">    3208170 :         ui quotient = rem_highest / rhs.digits.back();                          //quotient selection step</span>
-<span class="lineNum">     184 </span><span class="lineCov">    3208170 :         remainder -= rhs * quotient;</span>
-<span class="lineNum">     185 </span><span class="lineCov">    4397990 :         while (remainder &lt; 0) {</span>
-<span class="lineNum">     186 </span><span class="lineCov">     594910 :             quotient--;</span>
-<span class="lineNum">     187 </span><span class="lineCov">     594910 :             remainder += rhs;</span>
-<span class="lineNum">     188 </span>            :         }
-<span class="lineNum">     189 </span><span class="lineCov">    3208170 :         result.digits[i] = quotient;</span>
-<span class="lineNum">     190 </span>            :     }
-<span class="lineNum">     191 </span><span class="lineCov">     399630 :     result.erase_zeros();</span>
-<span class="lineNum">     192 </span><span class="lineCov">     399630 :     result.sign = final_sign;</span>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">     399630 :     return *this = result;</span></a>
-<span class="lineNum">     194 </span>            : }
-<span class="lineNum">     195 </span><span class="lineCov">     100070 : big_integer&amp; big_integer::operator%=(big_integer const&amp; rhs) {</span>
-<span class="lineNum">     196 </span><span class="lineCov">     100070 :     return *this = *this - (*this / rhs) * rhs;</span>
-<a name="197"><span class="lineNum">     197 </span>            : }</a>
+<span class="lineNum">     139 </span><span class="lineCov">      59824 :     big_integer res;</span>
+<span class="lineNum">     140 </span><span class="lineCov">      29912 :     res.digits.resize(digits.size() + rhs.digits.size());</span>
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span><span class="lineCov">     204399 :     for (size_t i = 0; i &lt; digits.size(); ++i) {</span>
+<span class="lineNum">     143 </span><span class="lineCov">    8935201 :         for (size_t j = 0, carry = 0; j &lt; rhs.digits.size() || carry; ++j) {</span>
+<span class="lineNum">     144 </span><span class="lineCov">    8760714 :             ull cur = res.digits[i + j] + digits[i] * 1ull * (j &lt; rhs.digits.size() ? rhs.digits[j] : 0) + carry;</span>
+<span class="lineNum">     145 </span><span class="lineCov">    8760714 :             res.digits[i + j] = cur &amp; DIGIT_MASK;</span>
+<span class="lineNum">     146 </span><span class="lineCov">    8760714 :             carry = cur &gt;&gt; BITS_IN_BASE;</span>
+<span class="lineNum">     147 </span>            :         }
+<span class="lineNum">     148 </span>            :     }
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineCov">      29912 :     res.sign = final_sign;</span>
+<span class="lineNum">     151 </span><span class="lineCov">      29912 :     res.erase_zeros();</span>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">      29912 :     return *this = res;</span></a>
+<span class="lineNum">     153 </span>            : }
+<span class="lineNum">     154 </span><span class="lineCov">      59982 : big_integer &amp;big_integer::operator/=(big_integer const &amp;rh) {</span>
+<span class="lineNum">     155 </span><span class="lineCov">     119964 :     big_integer rhs = rh;</span>
+<span class="lineNum">     156 </span><span class="lineCov">      59982 :     if (*this == 0 || abs(*this) &lt; abs(rhs)) return *this = 0;</span>
+<span class="lineNum">     157 </span><span class="lineCov">      59982 :     bool final_sign = (sign != rhs.sign);</span>
+<span class="lineNum">     158 </span><span class="lineCov">      59982 :     sign = rhs.sign = false;</span>
+<span class="lineNum">     159 </span><span class="lineCov">      59982 :     if (rhs.digits.size() == 1) {</span>
+<span class="lineNum">     160 </span><span class="lineCov">      20019 :         *this /= rhs.digits[0];</span>
+<span class="lineNum">     161 </span><span class="lineCov">      20019 :         sign = final_sign;</span>
+<span class="lineNum">     162 </span><span class="lineCov">      20019 :         return *this;</span>
+<span class="lineNum">     163 </span>            :     }
+<span class="lineNum">     164 </span><span class="lineCov">      39963 :     ui normalization = static_cast&lt;ui&gt;(BASE / (rhs.digits.back() + 1));</span>
+<span class="lineNum">     165 </span><span class="lineCov">      39963 :     *this *= normalization;</span>
+<span class="lineNum">     166 </span><span class="lineCov">      39963 :     rhs *= normalization;</span>
+<span class="lineNum">     167 </span><span class="lineCov">      79926 :     big_integer result;</span>
+<span class="lineNum">     168 </span><span class="lineCov">      39963 :     result.digits.resize(digits.size() - rhs.digits.size() + 1);</span>
+<span class="lineNum">     169 </span><span class="lineCov">      79926 :     big_integer remainder;</span>
+<span class="lineNum">     170 </span><span class="lineCov">      39963 :     remainder.digits.assign(digits.end() - rhs.digits.size() + 1, digits.end());</span>
+<span class="lineNum">     171 </span>            : 
+<span class="lineNum">     172 </span><span class="lineCov">     360780 :     for (size_t i = result.digits.size() - 1; i &lt; result.digits.size(); --i) {</span>
+<span class="lineNum">     173 </span><span class="lineCov">     320817 :         remainder &lt;&lt;= BITS_IN_BASE;</span>
+<span class="lineNum">     174 </span><span class="lineCov">     320817 :         remainder += digits[i];</span>
+<span class="lineNum">     175 </span><span class="lineCov">     320817 :         ull rem_highest = remainder.digits.back();</span>
+<span class="lineNum">     176 </span><span class="lineCov">     320817 :         if (remainder.digits.size() &gt; rhs.digits.size()) {</span>
+<span class="lineNum">     177 </span><span class="lineCov">     277132 :             rem_highest &lt;&lt;= BITS_IN_BASE;</span>
+<span class="lineNum">     178 </span><span class="lineCov">     277132 :             rem_highest += remainder.digits[remainder.digits.size() - 2];</span>
+<span class="lineNum">     179 </span>            :         }
+<span class="lineNum">     180 </span>            : 
+<span class="lineNum">     181 </span><span class="lineCov">     320817 :         ui quotient = rem_highest / rhs.digits.back();</span>
+<span class="lineNum">     182 </span><span class="lineCov">     320817 :         remainder -= rhs * quotient;</span>
+<span class="lineNum">     183 </span><span class="lineCov">     439799 :         while (remainder &lt; 0) {</span>
+<span class="lineNum">     184 </span><span class="lineCov">      59491 :             quotient--;</span>
+<span class="lineNum">     185 </span><span class="lineCov">      59491 :             remainder += rhs;</span>
+<span class="lineNum">     186 </span>            :         }
+<span class="lineNum">     187 </span><span class="lineCov">     320817 :         result.digits[i] = quotient;</span>
+<span class="lineNum">     188 </span>            :     }
+<span class="lineNum">     189 </span><span class="lineCov">      39963 :     result.erase_zeros();</span>
+<span class="lineNum">     190 </span><span class="lineCov">      39963 :     result.sign = final_sign;</span>
+<a name="191"><span class="lineNum">     191 </span><span class="lineCov">      39963 :     return *this = result;</span></a>
+<span class="lineNum">     192 </span>            : }
+<span class="lineNum">     193 </span><span class="lineCov">      10007 : big_integer&amp; big_integer::operator%=(big_integer const&amp; rhs) {</span>
+<span class="lineNum">     194 </span><span class="lineCov">      10007 :     return *this = *this - (*this / rhs) * rhs;</span>
+<a name="195"><span class="lineNum">     195 </span>            : }</a>
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span><span class="lineCov">     170283 : big_integer&amp; big_integer::operator*=(int32_t a) {</span>
 <span class="lineNum">     198 </span>            : 
-<span class="lineNum">     199 </span><span class="lineCov">    1702830 : big_integer&amp; big_integer::operator*=(int32_t a) {</span>
-<span class="lineNum">     200 </span>            : 
-<span class="lineNum">     201 </span><span class="lineCov">    1702830 :     sign = sign != (a &lt; 0);</span>
-<span class="lineNum">     202 </span><span class="lineCov">    1702830 :     if (a &lt; 0)  a = -a;</span>
-<a name="203"><span class="lineNum">     203 </span><span class="lineCov">    1702830 :     return *this *= static_cast&lt;ui&gt; (a);</span></a>
-<span class="lineNum">     204 </span>            : }
-<span class="lineNum">     205 </span><span class="lineCov">    9019340 : big_integer&amp; big_integer::operator*=(ui a) {</span>
-<span class="lineNum">     206 </span><span class="lineCov">    9019340 :     ui carry = 0;</span>
-<span class="lineNum">     207 </span><span class="lineCov">  408929240 :     for (auto &amp;digit : digits) {</span>
-<span class="lineNum">     208 </span><span class="lineCov">  399909900 :         ull cur = 1ull * digit * a + carry;</span>
-<span class="lineNum">     209 </span><span class="lineCov">  399909900 :         digit = cur &amp; DIGIT_MASK;</span>
-<span class="lineNum">     210 </span><span class="lineCov">  399909900 :         carry = cur &gt;&gt; BITS_IN_BASE;</span>
-<span class="lineNum">     211 </span>            :     }
-<span class="lineNum">     212 </span><span class="lineCov">    9019340 :     digits.push_back(carry);</span>
-<span class="lineNum">     213 </span><span class="lineCov">    9019340 :     erase_zeros();</span>
-<a name="214"><span class="lineNum">     214 </span><span class="lineCov">    9019340 :     return *this;</span></a>
-<span class="lineNum">     215 </span>            : }
-<span class="lineNum">     216 </span><span class="lineCov">      99910 : big_integer&amp; big_integer::operator/=(int32_t a) {</span>
-<span class="lineNum">     217 </span>            : 
-<span class="lineNum">     218 </span><span class="lineCov">      99910 :     sign = sign != (a &lt; 0);</span>
-<span class="lineNum">     219 </span><span class="lineCov">      99910 :     if (a &lt; 0)  a = -a;</span>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">      99910 :     return *this /= static_cast&lt;ui&gt; (a);</span></a>
-<span class="lineNum">     221 </span>            : }
-<span class="lineNum">     222 </span><span class="lineCov">     300150 : big_integer&amp; big_integer::operator/=(ui a) {</span>
-<span class="lineNum">     223 </span><span class="lineCov">     300150 :     ui carry = 0;</span>
-<span class="lineNum">     224 </span><span class="lineCov">   45546190 :     for (size_t i = digits.size() - 1; i &lt; digits.size(); --i) {</span>
-<span class="lineNum">     225 </span><span class="lineCov">   45246040 :         ull cur = (static_cast&lt;ull&gt;(carry) &lt;&lt; BITS_IN_BASE) + digits[i];</span>
-<span class="lineNum">     226 </span><span class="lineCov">   45246040 :         carry = static_cast&lt;ui&gt;(cur % a);</span>
-<span class="lineNum">     227 </span><span class="lineCov">   45246040 :         digits[i] = static_cast&lt;ui&gt;(cur / a);</span>
-<span class="lineNum">     228 </span>            :     }
-<span class="lineNum">     229 </span><span class="lineCov">     300150 :     erase_zeros();</span>
-<span class="lineNum">     230 </span><span class="lineCov">     300150 :     return *this;</span>
-<span class="lineNum">     231 </span>            : }
-<a name="232"><span class="lineNum">     232 </span>            : </a>
-<span class="lineNum">     233 </span>            : template&lt;typename T&gt;
-<span class="lineNum">     234 </span><span class="lineCov">        200 : big_integer &amp;big_integer::logical_operation(big_integer const &amp;rhs, T const &amp;op) {</span>
-<span class="lineNum">     235 </span><span class="lineCov">        400 :     big_integer rh = rhs;</span>
-<span class="lineNum">     236 </span><span class="lineCov">        200 :     bool lwn = false, rwn = false;</span>
-<span class="lineNum">     237 </span><span class="lineCov">        200 :     if (rhs.sign) {</span>
-<span class="lineNum">     238 </span><span class="lineCov">         50 :         rh.to_twos_compliment();</span>
-<span class="lineNum">     239 </span><span class="lineCov">         50 :         rwn = true;</span>
-<span class="lineNum">     240 </span>            :     }
-<span class="lineNum">     241 </span><span class="lineCov">        200 :     if (sign) {</span>
-<span class="lineNum">     242 </span><span class="lineNoCov">          0 :         to_twos_compliment();</span>
-<span class="lineNum">     243 </span><span class="lineNoCov">          0 :         lwn = true;</span>
-<span class="lineNum">     244 </span>            :     }
-<span class="lineNum">     245 </span><span class="lineCov">        200 :     size_t num = std::max(digits.size(), rhs.digits.size());</span>
-<span class="lineNum">     246 </span><span class="lineCov">        400 :     for (size_t i = 0; i &lt; num; ++i) {</span>
-<span class="lineNum">     247 </span><span class="lineCov">        200 :         if (i == digits.size()) digits.push_back(lwn ? DIGIT_MASK : 0);</span>
-<span class="lineNum">     248 </span><span class="lineCov">        200 :         digits[i] = op(digits[i], i &lt; rh.digits.size() ? rh.digits[i] : rwn ? DIGIT_MASK : 0);</span>
-<span class="lineNum">     249 </span>            :     }
-<span class="lineNum">     250 </span><span class="lineCov">        200 :     if (op(lwn , rwn))</span>
-<span class="lineNum">     251 </span><span class="lineCov">         20 :         to_sign_magnitude();</span>
-<span class="lineNum">     252 </span><span class="lineCov">        400 :     return *this;</span>
-<a name="253"><span class="lineNum">     253 </span>            : }</a>
-<span class="lineNum">     254 </span>            : 
-<span class="lineNum">     255 </span><span class="lineCov">         90 : big_integer&amp; big_integer::operator&amp;=(big_integer const&amp; rhs) {</span>
-<a name="256"><span class="lineNum">     256 </span><span class="lineCov">         90 :     return logical_operation(rhs, std::bit_and&lt;&gt;());</span></a>
-<span class="lineNum">     257 </span>            : }
-<span class="lineNum">     258 </span><span class="lineCov">         60 : big_integer&amp; big_integer::operator|=(big_integer const&amp; rhs) {</span>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">         60 :     return logical_operation(rhs, std::bit_or&lt;&gt;());</span></a>
-<span class="lineNum">     260 </span>            : }
-<span class="lineNum">     261 </span><span class="lineCov">         50 : big_integer&amp; big_integer::operator^=(big_integer const&amp; rhs) {</span>
-<span class="lineNum">     262 </span><span class="lineCov">         50 :     return logical_operation(rhs, std::bit_xor&lt;&gt;());</span>
-<span class="lineNum">     263 </span>            : }
-<span class="lineNum">     264 </span>            : 
+<span class="lineNum">     199 </span><span class="lineCov">     170283 :     sign = sign != (a &lt; 0);</span>
+<span class="lineNum">     200 </span><span class="lineCov">     170283 :     if (a &lt; 0)  a = -a;</span>
+<a name="201"><span class="lineNum">     201 </span><span class="lineCov">     170283 :     return *this *= static_cast&lt;ui&gt; (a);</span></a>
+<span class="lineNum">     202 </span>            : }
+<span class="lineNum">     203 </span><span class="lineCov">     901934 : big_integer&amp; big_integer::operator*=(ui a) {</span>
+<span class="lineNum">     204 </span><span class="lineCov">     901934 :     ui carry = 0;</span>
+<span class="lineNum">     205 </span><span class="lineCov">   40892965 :     for (auto &amp;digit : digits) {</span>
+<span class="lineNum">     206 </span><span class="lineCov">   39991031 :         ull cur = 1ull * digit * a + carry;</span>
+<span class="lineNum">     207 </span><span class="lineCov">   39991031 :         digit = cur &amp; DIGIT_MASK;</span>
+<span class="lineNum">     208 </span><span class="lineCov">   39991031 :         carry = cur &gt;&gt; BITS_IN_BASE;</span>
+<span class="lineNum">     209 </span>            :     }
+<span class="lineNum">     210 </span><span class="lineCov">     901934 :     digits.push_back(carry);</span>
+<span class="lineNum">     211 </span><span class="lineCov">     901934 :     erase_zeros();</span>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">     901934 :     return *this;</span></a>
+<span class="lineNum">     213 </span>            : }
+<span class="lineNum">     214 </span><span class="lineCov">       9992 : big_integer&amp; big_integer::operator/=(int32_t a) {</span>
+<span class="lineNum">     215 </span>            : 
+<span class="lineNum">     216 </span><span class="lineCov">       9992 :     sign = sign != (a &lt; 0);</span>
+<span class="lineNum">     217 </span><span class="lineCov">       9992 :     if (a &lt; 0)  a = -a;</span>
+<a name="218"><span class="lineNum">     218 </span><span class="lineCov">       9992 :     return *this /= static_cast&lt;ui&gt; (a);</span></a>
+<span class="lineNum">     219 </span>            : }
+<span class="lineNum">     220 </span><span class="lineCov">      30016 : big_integer&amp; big_integer::operator/=(ui a) {</span>
+<span class="lineNum">     221 </span><span class="lineCov">      30016 :     ui carry = 0;</span>
+<span class="lineNum">     222 </span><span class="lineCov">    4554621 :     for (size_t i = digits.size() - 1; i &lt; digits.size(); --i) {</span>
+<span class="lineNum">     223 </span><span class="lineCov">    4524605 :         ull cur = (static_cast&lt;ull&gt;(carry) &lt;&lt; BITS_IN_BASE) + digits[i];</span>
+<span class="lineNum">     224 </span><span class="lineCov">    4524605 :         carry = static_cast&lt;ui&gt;(cur % a);</span>
+<span class="lineNum">     225 </span><span class="lineCov">    4524605 :         digits[i] = static_cast&lt;ui&gt;(cur / a);</span>
+<span class="lineNum">     226 </span>            :     }
+<span class="lineNum">     227 </span><span class="lineCov">      30016 :     erase_zeros();</span>
+<span class="lineNum">     228 </span><span class="lineCov">      30016 :     return *this;</span>
+<span class="lineNum">     229 </span>            : }
+<a name="230"><span class="lineNum">     230 </span>            : </a>
+<span class="lineNum">     231 </span>            : template&lt;typename T&gt;
+<span class="lineNum">     232 </span><span class="lineCov">         20 : big_integer &amp;big_integer::logical_operation(big_integer const &amp;rhs, T const &amp;op) {</span>
+<span class="lineNum">     233 </span><span class="lineCov">         40 :     big_integer rh = rhs;</span>
+<span class="lineNum">     234 </span><span class="lineCov">         20 :     bool lwn = false, rwn = false;</span>
+<span class="lineNum">     235 </span><span class="lineCov">         20 :     if (rhs.sign) {</span>
+<span class="lineNum">     236 </span><span class="lineCov">          5 :         rh.to_twos_compliment();</span>
+<span class="lineNum">     237 </span><span class="lineCov">          5 :         rwn = true;</span>
+<span class="lineNum">     238 </span>            :     }
+<span class="lineNum">     239 </span><span class="lineCov">         20 :     if (sign) {</span>
+<span class="lineNum">     240 </span><span class="lineNoCov">          0 :         to_twos_compliment();</span>
+<span class="lineNum">     241 </span><span class="lineNoCov">          0 :         lwn = true;</span>
+<span class="lineNum">     242 </span>            :     }
+<span class="lineNum">     243 </span><span class="lineCov">         20 :     size_t num = std::max(digits.size(), rhs.digits.size());</span>
+<span class="lineNum">     244 </span><span class="lineCov">         40 :     for (size_t i = 0; i &lt; num; ++i) {</span>
+<span class="lineNum">     245 </span><span class="lineCov">         20 :         if (i == digits.size()) digits.push_back(lwn ? DIGIT_MASK : 0);</span>
+<span class="lineNum">     246 </span><span class="lineCov">         20 :         digits[i] = op(digits[i], i &lt; rh.digits.size() ? rh.digits[i] : rwn ? DIGIT_MASK : 0);</span>
+<span class="lineNum">     247 </span>            :     }
+<span class="lineNum">     248 </span><span class="lineCov">         20 :     if (op(lwn, rwn))</span>
+<span class="lineNum">     249 </span><span class="lineCov">          2 :         to_sign_magnitude();</span>
+<span class="lineNum">     250 </span><span class="lineCov">         40 :     return *this;</span>
+<a name="251"><span class="lineNum">     251 </span>            : }</a>
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span><span class="lineCov">          9 : big_integer&amp; big_integer::operator&amp;=(big_integer const&amp; rhs) {</span>
+<a name="254"><span class="lineNum">     254 </span><span class="lineCov">          9 :     return logical_operation(rhs, std::bit_and&lt;&gt;());</span></a>
+<span class="lineNum">     255 </span>            : }
+<span class="lineNum">     256 </span><span class="lineCov">          6 : big_integer&amp; big_integer::operator|=(big_integer const&amp; rhs) {</span>
+<a name="257"><span class="lineNum">     257 </span><span class="lineCov">          6 :     return logical_operation(rhs, std::bit_or&lt;&gt;());</span></a>
+<span class="lineNum">     258 </span>            : }
+<span class="lineNum">     259 </span><span class="lineCov">          5 : big_integer&amp; big_integer::operator^=(big_integer const&amp; rhs) {</span>
+<span class="lineNum">     260 </span><span class="lineCov">          5 :     return logical_operation(rhs, std::bit_xor&lt;&gt;());</span>
+<span class="lineNum">     261 </span>            : }
+<span class="lineNum">     262 </span>            : 
+<span class="lineNum">     263 </span>            : 
+<a name="264"><span class="lineNum">     264 </span>            : </a>
 <span class="lineNum">     265 </span>            : 
-<a name="266"><span class="lineNum">     266 </span>            : </a>
-<span class="lineNum">     267 </span>            : 
-<span class="lineNum">     268 </span><span class="lineCov">    6416380 : big_integer&amp; big_integer::operator&lt;&lt;=(ui rhs) {</span>
-<span class="lineNum">     269 </span><span class="lineCov">    9624550 :     while (rhs &gt;= BITS_IN_BASE) {</span>
-<span class="lineNum">     270 </span><span class="lineCov">    3208170 :         digits.insert(digits.begin(), 0);</span>
-<span class="lineNum">     271 </span><span class="lineCov">    3208170 :         rhs -= BITS_IN_BASE;</span>
-<span class="lineNum">     272 </span>            :     }
-<a name="273"><span class="lineNum">     273 </span><span class="lineCov">    3208210 :     return *this *= (1U &lt;&lt; rhs);</span></a>
-<span class="lineNum">     274 </span>            : }
-<span class="lineNum">     275 </span><span class="lineCov">         70 : big_integer&amp; big_integer::operator&gt;&gt;=(ui rhs) {</span>
-<span class="lineNum">     276 </span><span class="lineCov">         70 :     ui cnt = 0;</span>
-<span class="lineNum">     277 </span><span class="lineCov">         70 :     while (rhs &gt;= BITS_IN_BASE) {</span>
-<span class="lineNum">     278 </span><span class="lineNoCov">          0 :         ++cnt;</span>
-<span class="lineNum">     279 </span><span class="lineNoCov">          0 :         digits.pop_back();</span>
-<span class="lineNum">     280 </span><span class="lineNoCov">          0 :         rhs -= BITS_IN_BASE;</span>
-<span class="lineNum">     281 </span>            :     }
-<span class="lineNum">     282 </span><span class="lineCov">         70 :     if (!sign) return *this /= (1U &lt;&lt; rhs);</span>
-<span class="lineNum">     283 </span>            :     else {
-<span class="lineNum">     284 </span><span class="lineCov">         20 :         to_twos_compliment();</span>
-<span class="lineNum">     285 </span>            : 
-<span class="lineNum">     286 </span><span class="lineCov">         20 :         ui tmp_mask = (1U &lt;&lt; rhs) - 1;</span>
-<span class="lineNum">     287 </span><span class="lineCov">         20 :         digits.insert(digits.begin(), cnt, DIGIT_MASK);</span>
-<span class="lineNum">     288 </span><span class="lineCov">         40 :         for (size_t i = 0; i &lt; digits.size(); ++i) {</span>
-<span class="lineNum">     289 </span><span class="lineCov">         20 :             if (i) {</span>
-<span class="lineNum">     290 </span><span class="lineNoCov">          0 :                 ui to_add = digits[i] &amp; tmp_mask;</span>
-<span class="lineNum">     291 </span><span class="lineNoCov">          0 :                 digits[i - 1] |= to_add &lt;&lt; (BITS_IN_BASE - rhs);</span>
-<span class="lineNum">     292 </span>            :             }
-<span class="lineNum">     293 </span><span class="lineCov">         20 :             digits[i] &gt;&gt;= rhs;</span>
-<span class="lineNum">     294 </span>            :         }
-<span class="lineNum">     295 </span><span class="lineCov">         20 :         ui lul = (tmp_mask &lt;&lt; (BITS_IN_BASE - rhs));</span>
-<span class="lineNum">     296 </span><span class="lineCov">         20 :         digits.back() |= lul;</span>
+<span class="lineNum">     266 </span><span class="lineCov">     641638 : big_integer&amp; big_integer::operator&lt;&lt;=(ui rhs) {</span>
+<span class="lineNum">     267 </span><span class="lineCov">     962455 :     while (rhs &gt;= BITS_IN_BASE) {</span>
+<span class="lineNum">     268 </span><span class="lineCov">     320817 :         digits.insert(digits.begin(), 0);</span>
+<span class="lineNum">     269 </span><span class="lineCov">     320817 :         rhs -= BITS_IN_BASE;</span>
+<span class="lineNum">     270 </span>            :     }
+<a name="271"><span class="lineNum">     271 </span><span class="lineCov">     320821 :     return *this *= (1U &lt;&lt; rhs);</span></a>
+<span class="lineNum">     272 </span>            : }
+<span class="lineNum">     273 </span><span class="lineCov">          7 : big_integer&amp; big_integer::operator&gt;&gt;=(ui rhs) {</span>
+<span class="lineNum">     274 </span><span class="lineCov">          7 :     ui cnt = 0;</span>
+<span class="lineNum">     275 </span><span class="lineCov">          7 :     while (rhs &gt;= BITS_IN_BASE) {</span>
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :         ++cnt;</span>
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :         digits.pop_back();</span>
+<span class="lineNum">     278 </span><span class="lineNoCov">          0 :         rhs -= BITS_IN_BASE;</span>
+<span class="lineNum">     279 </span>            :     }
+<span class="lineNum">     280 </span><span class="lineCov">          7 :     if (!sign) return *this /= (1U &lt;&lt; rhs);</span>
+<span class="lineNum">     281 </span>            :     else {
+<span class="lineNum">     282 </span><span class="lineCov">          2 :         to_twos_compliment();</span>
+<span class="lineNum">     283 </span>            : 
+<span class="lineNum">     284 </span><span class="lineCov">          2 :         ui tmp_mask = (1U &lt;&lt; rhs) - 1;</span>
+<span class="lineNum">     285 </span><span class="lineCov">          2 :         digits.insert(digits.begin(), cnt, DIGIT_MASK);</span>
+<span class="lineNum">     286 </span><span class="lineCov">          4 :         for (size_t i = 0; i &lt; digits.size(); ++i) {</span>
+<span class="lineNum">     287 </span><span class="lineCov">          2 :             if (i) {</span>
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :                 ui to_add = digits[i] &amp; tmp_mask;</span>
+<span class="lineNum">     289 </span><span class="lineNoCov">          0 :                 digits[i - 1] |= to_add &lt;&lt; (BITS_IN_BASE - rhs);</span>
+<span class="lineNum">     290 </span>            :             }
+<span class="lineNum">     291 </span><span class="lineCov">          2 :             digits[i] &gt;&gt;= rhs;</span>
+<span class="lineNum">     292 </span>            :         }
+<span class="lineNum">     293 </span><span class="lineCov">          2 :         ui lul = (tmp_mask &lt;&lt; (BITS_IN_BASE - rhs));</span>
+<span class="lineNum">     294 </span><span class="lineCov">          2 :         digits.back() |= lul;</span>
+<span class="lineNum">     295 </span>            : 
+<span class="lineNum">     296 </span><span class="lineCov">          2 :         to_sign_magnitude();</span>
 <span class="lineNum">     297 </span>            : 
-<span class="lineNum">     298 </span><span class="lineCov">         20 :         to_sign_magnitude();</span>
-<span class="lineNum">     299 </span>            : 
-<span class="lineNum">     300 </span><span class="lineCov">         20 :         return *this;</span>
-<span class="lineNum">     301 </span>            :     }
-<a name="302"><span class="lineNum">     302 </span>            : }</a>
-<span class="lineNum">     303 </span>            : 
-<span class="lineNum">     304 </span><span class="lineCov">        120 : big_integer operator+(big_integer a, big_integer const &amp;b) {</span>
-<span class="lineNum">     305 </span><span class="lineCov">        120 :     a += b;</span>
-<a name="306"><span class="lineNum">     306 </span><span class="lineCov">        120 :     return a;</span></a>
-<span class="lineNum">     307 </span>            : }
-<span class="lineNum">     308 </span><span class="lineCov">     200160 : big_integer operator-(big_integer a, big_integer const &amp;b) {</span>
-<span class="lineNum">     309 </span><span class="lineCov">     200160 :     a -= b;</span>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">     200160 :     return a;</span></a>
-<span class="lineNum">     311 </span>            : }
-<span class="lineNum">     312 </span><span class="lineCov">    3608120 : big_integer operator*(big_integer a, big_integer const &amp;b)</span>
-<span class="lineNum">     313 </span>            : {
-<span class="lineNum">     314 </span><span class="lineCov">    3608120 :     a *= b;</span>
-<a name="315"><span class="lineNum">     315 </span><span class="lineCov">    3608120 :     return a;</span></a>
-<span class="lineNum">     316 </span>            : }
-<span class="lineNum">     317 </span><span class="lineCov">     599790 : big_integer operator/(big_integer a, big_integer const &amp;b)</span>
-<span class="lineNum">     318 </span>            : {
-<span class="lineNum">     319 </span><span class="lineCov">     599790 :     a /= b;</span>
-<a name="320"><span class="lineNum">     320 </span><span class="lineCov">     599790 :     return a;</span></a>
-<span class="lineNum">     321 </span>            : }
-<span class="lineNum">     322 </span><span class="lineCov">     100060 : big_integer operator%(big_integer a, big_integer const &amp;b)</span>
-<span class="lineNum">     323 </span>            : {
-<span class="lineNum">     324 </span><span class="lineCov">     100060 :     a %= b;</span>
-<a name="325"><span class="lineNum">     325 </span><span class="lineCov">     100060 :     return a;</span></a>
-<span class="lineNum">     326 </span>            : }
-<span class="lineNum">     327 </span><span class="lineCov">         60 : big_integer operator&amp;(big_integer a, big_integer const&amp; b) {</span>
-<a name="328"><span class="lineNum">     328 </span><span class="lineCov">         60 :     return a &amp;= b;</span></a>
-<span class="lineNum">     329 </span>            : }
-<span class="lineNum">     330 </span><span class="lineCov">         30 : big_integer operator|(big_integer a, big_integer const&amp; b) {</span>
-<a name="331"><span class="lineNum">     331 </span><span class="lineCov">         30 :     return a |= b;</span></a>
-<span class="lineNum">     332 </span>            : }
-<span class="lineNum">     333 </span><span class="lineCov">         30 : big_integer operator^(big_integer a, big_integer const&amp; b) {</span>
-<span class="lineNum">     334 </span><span class="lineCov">         30 :     return a ^= b;</span>
-<a name="335"><span class="lineNum">     335 </span>            : }</a>
-<span class="lineNum">     336 </span>            : 
-<span class="lineNum">     337 </span><span class="lineCov">         10 : big_integer operator&lt;&lt;(big_integer a, ui b) {</span>
-<span class="lineNum">     338 </span><span class="lineCov">         10 :     a &lt;&lt;= b;</span>
-<a name="339"><span class="lineNum">     339 </span><span class="lineCov">         10 :     return a;</span></a>
-<span class="lineNum">     340 </span>            : }
-<span class="lineNum">     341 </span><span class="lineCov">         30 : big_integer operator&gt;&gt;(big_integer a, ui b) {</span>
-<span class="lineNum">     342 </span><span class="lineCov">         30 :     a &gt;&gt;= b;</span>
-<span class="lineNum">     343 </span><span class="lineCov">         30 :     return a;</span>
-<a name="344"><span class="lineNum">     344 </span>            : }</a>
-<span class="lineNum">     345 </span>            : 
-<span class="lineNum">     346 </span><span class="lineCov">         10 : big_integer big_integer::operator+() const {</span>
-<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         10 :     return *this;</span></a>
-<span class="lineNum">     348 </span>            : }
-<span class="lineNum">     349 </span><span class="lineCov">   11132598 : big_integer big_integer::operator-() const {</span>
-<span class="lineNum">     350 </span><span class="lineCov">   11132598 :     big_integer res = *this;</span>
-<span class="lineNum">     351 </span><span class="lineCov">   11132598 :     if (res != 0)</span>
-<span class="lineNum">     352 </span><span class="lineCov">   10496368 :         res.sign = !res.sign;</span>
-<a name="353"><span class="lineNum">     353 </span><span class="lineCov">   11132598 :     return res;</span></a>
-<span class="lineNum">     354 </span>            : }
-<span class="lineNum">     355 </span><span class="lineCov">         10 : big_integer big_integer::operator~() const {</span>
-<span class="lineNum">     356 </span><span class="lineCov">         10 :     return -*this - 1;</span>
-<a name="357"><span class="lineNum">     357 </span>            : }</a>
-<span class="lineNum">     358 </span>            : 
-<span class="lineNum">     359 </span><span class="lineCov">   30258989 : bool operator&lt;(big_integer const &amp;a, big_integer const &amp;b)</span>
-<span class="lineNum">     360 </span>            : {
-<span class="lineNum">     361 </span><span class="lineCov">   30258989 :     if (a.sign != b.sign) return a.sign &gt; b.sign;</span>
-<span class="lineNum">     362 </span><span class="lineCov">   26101086 :     if (a.digits.size() != b.digits.size())</span>
-<span class="lineNum">     363 </span><span class="lineCov">   18740030 :         return a.sign ? a.digits.size() &gt; b.digits.size() : a.digits.size() &lt; b.digits.size();</span>
-<span class="lineNum">     364 </span>            : 
-<span class="lineNum">     365 </span><span class="lineCov">   20503875 :     for (size_t i = a.digits.size() - 1; i &lt; a.digits.size(); --i) {</span>
-<span class="lineNum">     366 </span><span class="lineCov">   17793336 :         if (a.digits[i] != b.digits[i])</span>
-<span class="lineNum">     367 </span><span class="lineCov">    4650517 :             return a.sign ? a.digits[i] &gt; b.digits[i] : a.digits[i] &lt; b.digits[i];</span>
-<span class="lineNum">     368 </span>            :     }
-<a name="369"><span class="lineNum">     369 </span><span class="lineCov">    2710539 :     return false; //equal lol</span></a>
-<a name="370"><span class="lineNum">     370 </span>            : }</a>
-<a name="371"><span class="lineNum">     371 </span><span class="lineCov">   12233188 : bool operator==(big_integer const&amp; a, big_integer const&amp; b) { return !(a &lt; b) &amp;&amp; !(b &lt; a); }</span></a>
-<a name="372"><span class="lineNum">     372 </span><span class="lineCov">   11132608 : bool operator!=(big_integer const&amp; a, big_integer const&amp; b) { return !(a == b); }</span></a>
-<a name="373"><span class="lineNum">     373 </span><span class="lineCov">    4752583 : bool operator&gt;(big_integer const&amp; a, big_integer const&amp; b) { return b &lt; a; }</span></a>
-<span class="lineNum">     374 </span><span class="lineCov">         30 : bool operator&lt;=(big_integer const&amp; a, big_integer const&amp; b) { return !(b &lt; a); }</span>
-<a name="375"><span class="lineNum">     375 </span><span class="lineCov">     100081 : bool operator&gt;=(big_integer const&amp; a, big_integer const&amp; b) { return !(a &lt; b); }</span></a>
-<span class="lineNum">     376 </span>            : 
-<span class="lineNum">     377 </span><span class="lineCov">         61 : std::string to_string(big_integer a) {</span>
-<span class="lineNum">     378 </span><span class="lineCov">         61 :     a.erase_zeros();</span>
-<span class="lineNum">     379 </span><span class="lineCov">         61 :     std::string ans;</span>
-<span class="lineNum">     380 </span><span class="lineCov">         81 :     while (abs(a) &gt;= POW10[MAX10]) {</span>
-<span class="lineNum">     381 </span><span class="lineCov">         20 :         std::string block = std::to_string((a % POW10[MAX10]).digits[0]);</span>
-<span class="lineNum">     382 </span><span class="lineCov">         10 :         std::reverse(block.begin(), block.end());</span>
-<span class="lineNum">     383 </span><span class="lineCov">         90 :         while (block.size() &lt; MAX10) block.push_back('0');</span>
-<span class="lineNum">     384 </span><span class="lineCov">         10 :         ans.append(block);</span>
-<span class="lineNum">     385 </span><span class="lineCov">         10 :         a /= POW10[MAX10];</span>
-<span class="lineNum">     386 </span>            :     }
-<span class="lineNum">     387 </span><span class="lineCov">        122 :     std::string last = std::to_string(a.digits[0]);</span>
-<span class="lineNum">     388 </span><span class="lineCov">         61 :     std::reverse(last.begin(), last.end());</span>
-<span class="lineNum">     389 </span><span class="lineCov">         61 :     ans.append(last);</span>
-<span class="lineNum">     390 </span><span class="lineCov">         61 :     if (a.sign) ans.push_back('-');</span>
-<span class="lineNum">     391 </span><span class="lineCov">         61 :     std::reverse(ans.begin(), ans.end());</span>
-<a name="392"><span class="lineNum">     392 </span><span class="lineCov">        122 :     return ans;</span></a>
-<span class="lineNum">     393 </span>            : }
-<span class="lineNum">     394 </span><span class="lineCov">         11 : std::ostream&amp; operator&lt;&lt;(std::ostream&amp; s, big_integer const&amp; a)</span>
-<a name="395"><span class="lineNum">     395 </span>            : {</a>
-<span class="lineNum">     396 </span><span class="lineCov">         11 :     return s &lt;&lt; to_string(a);</span>
-<span class="lineNum">     397 </span><span class="lineCov">         30 : }</span>
+<span class="lineNum">     298 </span><span class="lineCov">          2 :         return *this;</span>
+<span class="lineNum">     299 </span>            :     }
+<a name="300"><span class="lineNum">     300 </span>            : }</a>
+<span class="lineNum">     301 </span>            : 
+<span class="lineNum">     302 </span><span class="lineCov">         12 : big_integer operator+(big_integer a, big_integer const &amp;b) {</span>
+<span class="lineNum">     303 </span><span class="lineCov">         12 :     a += b;</span>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">         12 :     return a;</span></a>
+<span class="lineNum">     305 </span>            : }
+<span class="lineNum">     306 </span><span class="lineCov">      20016 : big_integer operator-(big_integer a, big_integer const &amp;b) {</span>
+<span class="lineNum">     307 </span><span class="lineCov">      20016 :     a -= b;</span>
+<a name="308"><span class="lineNum">     308 </span><span class="lineCov">      20016 :     return a;</span></a>
+<span class="lineNum">     309 </span>            : }
+<span class="lineNum">     310 </span><span class="lineCov">     360812 : big_integer operator*(big_integer a, big_integer const &amp;b)</span>
+<span class="lineNum">     311 </span>            : {
+<span class="lineNum">     312 </span><span class="lineCov">     360812 :     a *= b;</span>
+<a name="313"><span class="lineNum">     313 </span><span class="lineCov">     360812 :     return a;</span></a>
+<span class="lineNum">     314 </span>            : }
+<span class="lineNum">     315 </span><span class="lineCov">      59979 : big_integer operator/(big_integer a, big_integer const &amp;b)</span>
+<span class="lineNum">     316 </span>            : {
+<span class="lineNum">     317 </span><span class="lineCov">      59979 :     a /= b;</span>
+<a name="318"><span class="lineNum">     318 </span><span class="lineCov">      59979 :     return a;</span></a>
+<span class="lineNum">     319 </span>            : }
+<span class="lineNum">     320 </span><span class="lineCov">      10006 : big_integer operator%(big_integer a, big_integer const &amp;b)</span>
+<span class="lineNum">     321 </span>            : {
+<span class="lineNum">     322 </span><span class="lineCov">      10006 :     a %= b;</span>
+<a name="323"><span class="lineNum">     323 </span><span class="lineCov">      10006 :     return a;</span></a>
+<span class="lineNum">     324 </span>            : }
+<span class="lineNum">     325 </span><span class="lineCov">          6 : big_integer operator&amp;(big_integer a, big_integer const&amp; b) {</span>
+<a name="326"><span class="lineNum">     326 </span><span class="lineCov">          6 :     return a &amp;= b;</span></a>
+<span class="lineNum">     327 </span>            : }
+<span class="lineNum">     328 </span><span class="lineCov">          3 : big_integer operator|(big_integer a, big_integer const&amp; b) {</span>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">          3 :     return a |= b;</span></a>
+<span class="lineNum">     330 </span>            : }
+<span class="lineNum">     331 </span><span class="lineCov">          3 : big_integer operator^(big_integer a, big_integer const&amp; b) {</span>
+<span class="lineNum">     332 </span><span class="lineCov">          3 :     return a ^= b;</span>
+<a name="333"><span class="lineNum">     333 </span>            : }</a>
+<span class="lineNum">     334 </span>            : 
+<span class="lineNum">     335 </span><span class="lineCov">          1 : big_integer operator&lt;&lt;(big_integer a, ui b) {</span>
+<span class="lineNum">     336 </span><span class="lineCov">          1 :     a &lt;&lt;= b;</span>
+<a name="337"><span class="lineNum">     337 </span><span class="lineCov">          1 :     return a;</span></a>
+<span class="lineNum">     338 </span>            : }
+<span class="lineNum">     339 </span><span class="lineCov">          3 : big_integer operator&gt;&gt;(big_integer a, ui b) {</span>
+<span class="lineNum">     340 </span><span class="lineCov">          3 :     a &gt;&gt;= b;</span>
+<span class="lineNum">     341 </span><span class="lineCov">          3 :     return a;</span>
+<a name="342"><span class="lineNum">     342 </span>            : }</a>
+<span class="lineNum">     343 </span>            : 
+<span class="lineNum">     344 </span><span class="lineCov">          1 : big_integer big_integer::operator+() const {</span>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">          1 :     return *this;</span></a>
+<span class="lineNum">     346 </span>            : }
+<span class="lineNum">     347 </span><span class="lineCov">    1113262 : big_integer big_integer::operator-() const {</span>
+<span class="lineNum">     348 </span><span class="lineCov">    1113262 :     big_integer res = *this;</span>
+<span class="lineNum">     349 </span><span class="lineCov">    1113262 :     if (res != 0)</span>
+<span class="lineNum">     350 </span><span class="lineCov">    1049639 :         res.sign = !res.sign;</span>
+<a name="351"><span class="lineNum">     351 </span><span class="lineCov">    1113262 :     return res;</span></a>
+<span class="lineNum">     352 </span>            : }
+<span class="lineNum">     353 </span><span class="lineCov">          1 : big_integer big_integer::operator~() const {</span>
+<span class="lineNum">     354 </span><span class="lineCov">          1 :     return -*this - 1;</span>
+<a name="355"><span class="lineNum">     355 </span>            : }</a>
+<span class="lineNum">     356 </span>            : 
+<span class="lineNum">     357 </span><span class="lineCov">    3025905 : bool operator&lt;(big_integer const &amp;a, big_integer const &amp;b)</span>
+<span class="lineNum">     358 </span>            : {
+<span class="lineNum">     359 </span><span class="lineCov">    3025905 :     if (a.sign != b.sign) return a.sign &gt; b.sign;</span>
+<span class="lineNum">     360 </span><span class="lineCov">    2610115 :     if (a.digits.size() != b.digits.size())</span>
+<span class="lineNum">     361 </span><span class="lineCov">    1874003 :         return a.sign ? a.digits.size() &gt; b.digits.size() : a.digits.size() &lt; b.digits.size();</span>
+<span class="lineNum">     362 </span>            : 
+<span class="lineNum">     363 </span><span class="lineCov">    2050399 :     for (size_t i = a.digits.size() - 1; i &lt; a.digits.size(); --i) {</span>
+<span class="lineNum">     364 </span><span class="lineCov">    1779340 :         if (a.digits[i] != b.digits[i])</span>
+<span class="lineNum">     365 </span><span class="lineCov">     465053 :             return a.sign ? a.digits[i] &gt; b.digits[i] : a.digits[i] &lt; b.digits[i];</span>
+<span class="lineNum">     366 </span>            :     }
+<a name="367"><span class="lineNum">     367 </span><span class="lineCov">     271059 :     return false; //equal lol</span></a>
+<a name="368"><span class="lineNum">     368 </span>            : }</a>
+<a name="369"><span class="lineNum">     369 </span><span class="lineCov">    1223323 : bool operator==(big_integer const&amp; a, big_integer const&amp; b) { return !(a &lt; b) &amp;&amp; !(b &lt; a); }</span></a>
+<a name="370"><span class="lineNum">     370 </span><span class="lineCov">    1113263 : bool operator!=(big_integer const&amp; a, big_integer const&amp; b) { return !(a == b); }</span></a>
+<a name="371"><span class="lineNum">     371 </span><span class="lineCov">     475258 : bool operator&gt;(big_integer const&amp; a, big_integer const&amp; b) { return b &lt; a; }</span></a>
+<span class="lineNum">     372 </span><span class="lineCov">          3 : bool operator&lt;=(big_integer const&amp; a, big_integer const&amp; b) { return !(b &lt; a); }</span>
+<a name="373"><span class="lineNum">     373 </span><span class="lineCov">      10007 : bool operator&gt;=(big_integer const&amp; a, big_integer const&amp; b) { return !(a &lt; b); }</span></a>
+<span class="lineNum">     374 </span>            : 
+<span class="lineNum">     375 </span><span class="lineCov">          5 : std::string to_string(big_integer a) {</span>
+<span class="lineNum">     376 </span><span class="lineCov">          5 :     a.erase_zeros();</span>
+<span class="lineNum">     377 </span><span class="lineCov">          5 :     std::string ans;</span>
+<span class="lineNum">     378 </span><span class="lineCov">          7 :     while (abs(a) &gt;= POW10[MAX10]) {</span>
+<span class="lineNum">     379 </span><span class="lineCov">          2 :         std::string block = std::to_string((a % POW10[MAX10]).digits[0]);</span>
+<span class="lineNum">     380 </span><span class="lineCov">          1 :         std::reverse(block.begin(), block.end());</span>
+<span class="lineNum">     381 </span><span class="lineCov">          9 :         while (block.size() &lt; MAX10) block.push_back('0');</span>
+<span class="lineNum">     382 </span><span class="lineCov">          1 :         ans.append(block);</span>
+<span class="lineNum">     383 </span><span class="lineCov">          1 :         a /= POW10[MAX10];</span>
+<span class="lineNum">     384 </span>            :     }
+<span class="lineNum">     385 </span><span class="lineCov">         10 :     std::string last = std::to_string(a.digits[0]);</span>
+<span class="lineNum">     386 </span><span class="lineCov">          5 :     std::reverse(last.begin(), last.end());</span>
+<span class="lineNum">     387 </span><span class="lineCov">          5 :     ans.append(last);</span>
+<span class="lineNum">     388 </span><span class="lineCov">          5 :     if (a.sign) ans.push_back('-');</span>
+<span class="lineNum">     389 </span><span class="lineCov">          5 :     std::reverse(ans.begin(), ans.end());</span>
+<a name="390"><span class="lineNum">     390 </span><span class="lineCov">         10 :     return ans;</span></a>
+<span class="lineNum">     391 </span>            : }
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 : std::ostream&amp; operator&lt;&lt;(std::ostream&amp; s, big_integer const&amp; a)</span>
+<a name="393"><span class="lineNum">     393 </span>            : {</a>
+<span class="lineNum">     394 </span><span class="lineNoCov">          0 :     return s &lt;&lt; to_string(a);</span>
+<span class="lineNum">     395 </span><span class="lineCov">          3 : }</span>
 </pre>
       </td>
     </tr>

@@ -5,7 +5,7 @@
 #include <assert.h>
 
 
-const std::vector <int32_t> pow10 = { 1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000 };
+const std::vector <int32_t> POW10 = { 1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000 };
 const ui MAX10 = std::numeric_limits<ui>::digits10;
 const ui DIGIT_MASK = std::numeric_limits<ui>().max();
 const ull BASE = static_cast<ull>(DIGIT_MASK) + 1;
@@ -59,11 +59,11 @@ big_integer::big_integer(ui a) {
 big_integer::big_integer(std::string const& str): big_integer() {
     for (size_t i = (str[0] == '-') ? 1 : 0; i < str.size(); i += MAX10) {
         if (i + MAX10 < str.size()) {
-            *this *= pow10.back();
+            *this *= POW10.back();
             *this += std::stoi(str.substr(i, MAX10));
         }
         else {
-            *this *= pow10[str.size() - i];
+            *this *= POW10[str.size() - i];
             *this += std::stoi(str.substr(i, str.size() - i));
         }
     }
@@ -375,12 +375,12 @@ bool operator>=(big_integer const& a, big_integer const& b) { return !(a < b); }
 std::string to_string(big_integer a) {
     a.erase_zeros();
     std::string ans;
-    while (abs(a) >= pow10[MAX10]) {
-        std::string block = std::to_string((a % pow10[MAX10]).digits[0]);
+    while (abs(a) >= POW10[MAX10]) {
+        std::string block = std::to_string((a % POW10[MAX10]).digits[0]);
         std::reverse(block.begin(), block.end());
         while (block.size() < MAX10) block.push_back('0');
         ans.append(block);
-        a /= pow10[MAX10];
+        a /= POW10[MAX10];
     }
     std::string last = std::to_string(a.digits[0]);
     std::reverse(last.begin(), last.end());

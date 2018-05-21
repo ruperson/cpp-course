@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/ruperson/Desktop/cpp-course/bigint/big_integer.cpp
+/home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.cpp
 big_integer.h
-/home/ruperson/Desktop/cpp-course/bigint/big_integer.h
+/home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.h
 string
 -
 algorithm
@@ -18,7 +18,7 @@ functional
 assert.h
 -
 
-/home/ruperson/Desktop/cpp-course/bigint/big_integer.h
+/home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.h
 vector
 -
 cstddef
@@ -28,7 +28,7 @@ iosfwd
 stdint.h
 -
 
-/home/ruperson/Desktop/cpp-course/bigint/big_integer_testing.cpp
+/home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer_testing.cpp
 algorithm
 -
 cassert
@@ -42,9 +42,9 @@ utility
 gtest/gtest.h
 -
 big_integer.h
-/home/ruperson/Desktop/cpp-course/bigint/big_integer.h
+/home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.h
 
-/home/ruperson/Desktop/cpp-course/bigint/gtest/gtest-all.cc
+/home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest-all.cc
 gtest/gtest.h
 -
 ctype.h
@@ -210,7 +210,7 @@ ostream
 string
 -
 
-/home/ruperson/Desktop/cpp-course/bigint/gtest/gtest_main.cc
+/home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest_main.cc
 stdio.h
 -
 gtest/gtest.h

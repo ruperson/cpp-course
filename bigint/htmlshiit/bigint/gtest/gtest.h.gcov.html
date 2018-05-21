@@ -31,18 +31,18 @@
             <td class="headerValue">cov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">207</td>
+            <td class="headerCovTableEntry">120</td>
             <td class="headerCovTableEntry">371</td>
-            <td class="headerCovTableEntryLo">55.8 %</td>
+            <td class="headerCovTableEntryLo">32.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-05-21 17:25:22</td>
+            <td class="headerValue">2018-05-21 20:25:31</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">286</td>
-            <td class="headerCovTableEntry">639</td>
-            <td class="headerCovTableEntryLo">44.8 %</td>
+            <td class="headerCovTableEntry">227</td>
+            <td class="headerCovTableEntry">643</td>
+            <td class="headerCovTableEntryLo">35.3 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -2060,12 +2060,12 @@
 <span class="lineNum">    1998 </span>            :  public:
 <a name="1999"><span class="lineNum">    1999 </span>            :   typedef T element_type;</a>
 <a name="2000"><span class="lineNum">    2000 </span>            : </a>
-<span class="lineNum">    2001 </span><span class="lineCov">      72496 :   explicit scoped_ptr(T* p = NULL) : ptr_(p) {}</span>
-<a name="2002"><span class="lineNum">    2002 </span><span class="lineCov">      70209 :   ~scoped_ptr() { reset(); }</span></a>
+<span class="lineNum">    2001 </span><span class="lineCov">      70329 :   explicit scoped_ptr(T* p = NULL) : ptr_(p) {}</span>
+<a name="2002"><span class="lineNum">    2002 </span><span class="lineCov">      70196 :   ~scoped_ptr() { reset(); }</span></a>
 <a name="2003"><span class="lineNum">    2003 </span>            : </a>
-<a name="2004"><span class="lineNum">    2004 </span><span class="lineCov">        537 :   T&amp; operator*() const { return *ptr_; }</span></a>
-<span class="lineNum">    2005 </span><span class="lineCov">          4 :   T* operator-&gt;() const { return ptr_; }</span>
-<span class="lineNum">    2006 </span><span class="lineCov">       1796 :   T* get() const { return ptr_; }</span>
+<a name="2004"><span class="lineNum">    2004 </span><span class="lineCov">        492 :   T&amp; operator*() const { return *ptr_; }</span></a>
+<span class="lineNum">    2005 </span><span class="lineNoCov">          0 :   T* operator-&gt;() const { return ptr_; }</span>
+<span class="lineNum">    2006 </span><span class="lineCov">        174 :   T* get() const { return ptr_; }</span>
 <span class="lineNum">    2007 </span>            : 
 <span class="lineNum">    2008 </span>            :   T* release() {
 <span class="lineNum">    2009 </span>            :     T* const ptr = ptr_;
@@ -2073,14 +2073,14 @@
 <span class="lineNum">    2011 </span>            :     return ptr;
 <a name="2012"><span class="lineNum">    2012 </span>            :   }</a>
 <span class="lineNum">    2013 </span>            : 
-<span class="lineNum">    2014 </span><span class="lineCov">      70221 :   void reset(T* p = NULL) {</span>
-<span class="lineNum">    2015 </span><span class="lineCov">      70221 :     if (p != ptr_) {</span>
-<span class="lineNum">    2016 </span><span class="lineCov">        124 :       if (IsTrue(sizeof(T) &gt; 0)) {  // Makes sure T is a complete type.</span>
-<span class="lineNum">    2017 </span><span class="lineCov">        124 :         delete ptr_;</span>
+<span class="lineNum">    2014 </span><span class="lineCov">      70197 :   void reset(T* p = NULL) {</span>
+<span class="lineNum">    2015 </span><span class="lineCov">      70197 :     if (p != ptr_) {</span>
+<span class="lineNum">    2016 </span><span class="lineCov">        106 :       if (IsTrue(sizeof(T) &gt; 0)) {  // Makes sure T is a complete type.</span>
+<span class="lineNum">    2017 </span><span class="lineCov">        106 :         delete ptr_;</span>
 <span class="lineNum">    2018 </span>            :       }
-<span class="lineNum">    2019 </span><span class="lineCov">        124 :       ptr_ = p;</span>
+<span class="lineNum">    2019 </span><span class="lineCov">        106 :       ptr_ = p;</span>
 <span class="lineNum">    2020 </span>            :     }
-<span class="lineNum">    2021 </span><span class="lineCov">      70221 :   }</span>
+<span class="lineNum">    2021 </span><span class="lineCov">      70197 :   }</span>
 <span class="lineNum">    2022 </span>            : 
 <span class="lineNum">    2023 </span>            :  private:
 <span class="lineNum">    2024 </span>            :   T* ptr_;
@@ -2311,10 +2311,10 @@
 <span class="lineNum">    2249 </span>            : // When RTTI is available, the function performs a runtime
 <a name="2250"><span class="lineNum">    2250 </span>            : // check to enforce this.</a>
 <span class="lineNum">    2251 </span>            : template &lt;class Derived, class Base&gt;
-<span class="lineNum">    2252 </span><span class="lineCov">          2 : Derived* CheckedDowncastToActualType(Base* base) {</span>
+<span class="lineNum">    2252 </span><span class="lineNoCov">          0 : Derived* CheckedDowncastToActualType(Base* base) {</span>
 <span class="lineNum">    2253 </span>            : #if GTEST_HAS_RTTI
-<span class="lineNum">    2254 </span><span class="lineCov">          2 :   GTEST_CHECK_(typeid(*base) == typeid(Derived));</span>
-<span class="lineNum">    2255 </span><span class="lineCov">          2 :   return dynamic_cast&lt;Derived*&gt;(base);  // NOLINT</span>
+<span class="lineNum">    2254 </span><span class="lineNoCov">          0 :   GTEST_CHECK_(typeid(*base) == typeid(Derived));</span>
+<span class="lineNum">    2255 </span><span class="lineNoCov">          0 :   return dynamic_cast&lt;Derived*&gt;(base);  // NOLINT</span>
 <span class="lineNum">    2256 </span>            : #else
 <span class="lineNum">    2257 </span>            :   return static_cast&lt;Derived*&gt;(base);  // Poor man's downcast.
 <span class="lineNum">    2258 </span>            : #endif
@@ -2502,24 +2502,24 @@
 <span class="lineNum">    2440 </span>            : //   GTEST_DECLARE_STATIC_MUTEX_(g_some_mutex);
 <a name="2441"><span class="lineNum">    2441 </span>            : //</a>
 <span class="lineNum">    2442 </span>            : // To create a dynamic mutex, just define an object of type Mutex.
-<span class="lineNum">    2443 </span><span class="lineCov">        689 : class MutexBase {</span>
+<span class="lineNum">    2443 </span><span class="lineCov">         70 : class MutexBase {</span>
 <a name="2444"><span class="lineNum">    2444 </span>            :  public:</a>
 <span class="lineNum">    2445 </span>            :   // Acquires this mutex.
-<span class="lineNum">    2446 </span><span class="lineCov">         14 :   void Lock() {</span>
-<span class="lineNum">    2447 </span><span class="lineCov">         14 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_lock(&amp;mutex_));</span>
-<span class="lineNum">    2448 </span><span class="lineCov">         14 :     owner_ = pthread_self();</span>
-<span class="lineNum">    2449 </span><span class="lineCov">         14 :     has_owner_ = true;</span>
-<span class="lineNum">    2450 </span><span class="lineCov">         14 :   }</span>
+<span class="lineNum">    2446 </span><span class="lineNoCov">          0 :   void Lock() {</span>
+<span class="lineNum">    2447 </span><span class="lineNoCov">          0 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_lock(&amp;mutex_));</span>
+<span class="lineNum">    2448 </span><span class="lineNoCov">          0 :     owner_ = pthread_self();</span>
+<span class="lineNum">    2449 </span><span class="lineNoCov">          0 :     has_owner_ = true;</span>
+<span class="lineNum">    2450 </span><span class="lineNoCov">          0 :   }</span>
 <a name="2451"><span class="lineNum">    2451 </span>            : </a>
 <span class="lineNum">    2452 </span>            :   // Releases this mutex.
-<span class="lineNum">    2453 </span><span class="lineCov">         14 :   void Unlock() {</span>
+<span class="lineNum">    2453 </span><span class="lineNoCov">          0 :   void Unlock() {</span>
 <span class="lineNum">    2454 </span>            :     // Since the lock is being released the owner_ field should no longer be
 <span class="lineNum">    2455 </span>            :     // considered valid. We don't protect writing to has_owner_ here, as it's
 <span class="lineNum">    2456 </span>            :     // the caller's responsibility to ensure that the current thread holds the
 <span class="lineNum">    2457 </span>            :     // mutex when this is called.
-<span class="lineNum">    2458 </span><span class="lineCov">         14 :     has_owner_ = false;</span>
-<span class="lineNum">    2459 </span><span class="lineCov">         14 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_unlock(&amp;mutex_));</span>
-<span class="lineNum">    2460 </span><span class="lineCov">         14 :   }</span>
+<span class="lineNum">    2458 </span><span class="lineNoCov">          0 :     has_owner_ = false;</span>
+<span class="lineNum">    2459 </span><span class="lineNoCov">          0 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_unlock(&amp;mutex_));</span>
+<span class="lineNum">    2460 </span><span class="lineNoCov">          0 :   }</span>
 <span class="lineNum">    2461 </span>            : 
 <span class="lineNum">    2462 </span>            :   // Does nothing if the current thread holds the mutex. Otherwise, crashes
 <span class="lineNum">    2463 </span>            :   // with high probability.
@@ -2562,10 +2562,10 @@
 <span class="lineNum">    2500 </span>            : // shares its API with MutexBase otherwise.
 <a name="2501"><span class="lineNum">    2501 </span>            : class Mutex : public MutexBase {</a>
 <span class="lineNum">    2502 </span>            :  public:
-<span class="lineNum">    2503 </span><span class="lineCov">        689 :   Mutex() {</span>
-<span class="lineNum">    2504 </span><span class="lineCov">        689 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&amp;mutex_, NULL));</span>
-<a name="2505"><span class="lineNum">    2505 </span><span class="lineCov">        689 :     has_owner_ = false;</span></a>
-<span class="lineNum">    2506 </span><span class="lineCov">        689 :   }</span>
+<span class="lineNum">    2503 </span><span class="lineCov">         70 :   Mutex() {</span>
+<span class="lineNum">    2504 </span><span class="lineCov">         70 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&amp;mutex_, NULL));</span>
+<a name="2505"><span class="lineNum">    2505 </span><span class="lineCov">         70 :     has_owner_ = false;</span></a>
+<span class="lineNum">    2506 </span><span class="lineCov">         70 :   }</span>
 <span class="lineNum">    2507 </span><span class="lineNoCov">          0 :   ~Mutex() {</span>
 <span class="lineNum">    2508 </span><span class="lineNoCov">          0 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_destroy(&amp;mutex_));</span>
 <span class="lineNum">    2509 </span><span class="lineNoCov">          0 :   }</span>
@@ -2579,10 +2579,10 @@
 <span class="lineNum">    2517 </span>            : // platforms.  Hence the typedef trick below.
 <a name="2518"><span class="lineNum">    2518 </span>            : class GTestMutexLock {</a>
 <span class="lineNum">    2519 </span>            :  public:
-<span class="lineNum">    2520 </span><span class="lineCov">         14 :   explicit GTestMutexLock(MutexBase* mutex)</span>
-<a name="2521"><span class="lineNum">    2521 </span><span class="lineCov">         14 :       : mutex_(mutex) { mutex_-&gt;Lock(); }</span></a>
+<span class="lineNum">    2520 </span><span class="lineNoCov">          0 :   explicit GTestMutexLock(MutexBase* mutex)</span>
+<a name="2521"><span class="lineNum">    2521 </span><span class="lineNoCov">          0 :       : mutex_(mutex) { mutex_-&gt;Lock(); }</span></a>
 <span class="lineNum">    2522 </span>            : 
-<span class="lineNum">    2523 </span><span class="lineCov">         14 :   ~GTestMutexLock() { mutex_-&gt;Unlock(); }</span>
+<span class="lineNum">    2523 </span><span class="lineNoCov">          0 :   ~GTestMutexLock() { mutex_-&gt;Unlock(); }</span>
 <span class="lineNum">    2524 </span>            : 
 <span class="lineNum">    2525 </span>            :  private:
 <span class="lineNum">    2526 </span>            :   MutexBase* const mutex_;
@@ -2598,7 +2598,7 @@
 <span class="lineNum">    2536 </span>            : // C-linkage.  Therefore it cannot be templatized to access
 <a name="2537"><span class="lineNum">    2537 </span>            : // ThreadLocal&lt;T&gt;.  Hence the need for class</a>
 <span class="lineNum">    2538 </span>            : // ThreadLocalValueHolderBase.
-<a name="2539"><span class="lineNum">    2539 </span><span class="lineCov">         12 : class ThreadLocalValueHolderBase {</span></a>
+<a name="2539"><span class="lineNum">    2539 </span><span class="lineNoCov">          0 : class ThreadLocalValueHolderBase {</span></a>
 <span class="lineNum">    2540 </span>            :  public:
 <span class="lineNum">    2541 </span><span class="lineNoCov">          0 :   virtual ~ThreadLocalValueHolderBase() {}</span>
 <span class="lineNum">    2542 </span>            : };
@@ -2641,10 +2641,10 @@
 <span class="lineNum">    2579 </span>            : template &lt;typename T&gt;
 <a name="2580"><span class="lineNum">    2580 </span>            : class ThreadLocal {</a>
 <span class="lineNum">    2581 </span>            :  public:
-<a name="2582"><span class="lineNum">    2582 </span><span class="lineCov">         10 :   ThreadLocal() : key_(CreateKey()),</span></a>
-<span class="lineNum">    2583 </span><span class="lineCov">         10 :                   default_() {}</span>
-<span class="lineNum">    2584 </span><span class="lineCov">         10 :   explicit ThreadLocal(const T&amp; value) : key_(CreateKey()),</span>
-<a name="2585"><span class="lineNum">    2585 </span><span class="lineCov">         10 :                                          default_(value) {}</span></a>
+<a name="2582"><span class="lineNum">    2582 </span><span class="lineCov">          1 :   ThreadLocal() : key_(CreateKey()),</span></a>
+<span class="lineNum">    2583 </span><span class="lineCov">          1 :                   default_() {}</span>
+<span class="lineNum">    2584 </span><span class="lineCov">          1 :   explicit ThreadLocal(const T&amp; value) : key_(CreateKey()),</span>
+<a name="2585"><span class="lineNum">    2585 </span><span class="lineCov">          1 :                                          default_(value) {}</span></a>
 <span class="lineNum">    2586 </span>            : 
 <span class="lineNum">    2587 </span><span class="lineNoCov">          0 :   ~ThreadLocal() {</span>
 <span class="lineNum">    2588 </span>            :     // Destroys the managed object for the current thread, if any.
@@ -2655,44 +2655,44 @@
 <span class="lineNum">    2593 </span><span class="lineNoCov">          0 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_key_delete(key_));</span>
 <a name="2594"><span class="lineNum">    2594 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="2595"><span class="lineNum">    2595 </span>            : </a>
-<a name="2596"><span class="lineNum">    2596 </span><span class="lineCov">          7 :   T* pointer() { return GetOrCreateValue(); }</span></a>
-<a name="2597"><span class="lineNum">    2597 </span><span class="lineCov">          7 :   const T* pointer() const { return GetOrCreateValue(); }</span></a>
-<span class="lineNum">    2598 </span><span class="lineCov">          7 :   const T&amp; get() const { return *pointer(); }</span>
+<a name="2596"><span class="lineNum">    2596 </span><span class="lineNoCov">          0 :   T* pointer() { return GetOrCreateValue(); }</span></a>
+<a name="2597"><span class="lineNum">    2597 </span><span class="lineNoCov">          0 :   const T* pointer() const { return GetOrCreateValue(); }</span></a>
+<span class="lineNum">    2598 </span><span class="lineNoCov">          0 :   const T&amp; get() const { return *pointer(); }</span>
 <span class="lineNum">    2599 </span><span class="lineNoCov">          0 :   void set(const T&amp; value) { *pointer() = value; }</span>
 <span class="lineNum">    2600 </span>            : 
 <a name="2601"><span class="lineNum">    2601 </span>            :  private:</a>
 <span class="lineNum">    2602 </span>            :   // Holds a value of type T.
 <a name="2603"><span class="lineNum">    2603 </span><span class="lineNoCov">          0 :   class ValueHolder : public ThreadLocalValueHolderBase {</span></a>
 <span class="lineNum">    2604 </span>            :    public:
-<a name="2605"><span class="lineNum">    2605 </span><span class="lineCov">         12 :     explicit ValueHolder(const T&amp; value) : value_(value) {}</span></a>
+<a name="2605"><span class="lineNum">    2605 </span><span class="lineNoCov">          0 :     explicit ValueHolder(const T&amp; value) : value_(value) {}</span></a>
 <span class="lineNum">    2606 </span>            : 
-<span class="lineNum">    2607 </span><span class="lineCov">         14 :     T* pointer() { return &amp;value_; }</span>
+<span class="lineNum">    2607 </span><span class="lineNoCov">          0 :     T* pointer() { return &amp;value_; }</span>
 <span class="lineNum">    2608 </span>            : 
 <span class="lineNum">    2609 </span>            :    private:
 <span class="lineNum">    2610 </span>            :     T value_;
 <span class="lineNum">    2611 </span>            :     GTEST_DISALLOW_COPY_AND_ASSIGN_(ValueHolder);
 <a name="2612"><span class="lineNum">    2612 </span>            :   };</a>
 <span class="lineNum">    2613 </span>            : 
-<span class="lineNum">    2614 </span><span class="lineCov">         20 :   static pthread_key_t CreateKey() {</span>
+<span class="lineNum">    2614 </span><span class="lineCov">          2 :   static pthread_key_t CreateKey() {</span>
 <span class="lineNum">    2615 </span>            :     pthread_key_t key;
 <span class="lineNum">    2616 </span>            :     // When a thread exits, DeleteThreadLocalValue() will be called on
 <span class="lineNum">    2617 </span>            :     // the object managed for that thread.
-<span class="lineNum">    2618 </span><span class="lineCov">         20 :     GTEST_CHECK_POSIX_SUCCESS_(</span>
+<span class="lineNum">    2618 </span><span class="lineCov">          2 :     GTEST_CHECK_POSIX_SUCCESS_(</span>
 <span class="lineNum">    2619 </span>            :         pthread_key_create(&amp;key, &amp;DeleteThreadLocalValue));
-<span class="lineNum">    2620 </span><span class="lineCov">         20 :     return key;</span>
+<span class="lineNum">    2620 </span><span class="lineCov">          2 :     return key;</span>
 <a name="2621"><span class="lineNum">    2621 </span>            :   }</a>
 <span class="lineNum">    2622 </span>            : 
-<span class="lineNum">    2623 </span><span class="lineCov">         14 :   T* GetOrCreateValue() const {</span>
+<span class="lineNum">    2623 </span><span class="lineNoCov">          0 :   T* GetOrCreateValue() const {</span>
 <span class="lineNum">    2624 </span>            :     ThreadLocalValueHolderBase* const holder =
-<span class="lineNum">    2625 </span><span class="lineCov">         14 :         static_cast&lt;ThreadLocalValueHolderBase*&gt;(pthread_getspecific(key_));</span>
-<span class="lineNum">    2626 </span><span class="lineCov">         14 :     if (holder != NULL) {</span>
-<span class="lineNum">    2627 </span><span class="lineCov">          2 :       return CheckedDowncastToActualType&lt;ValueHolder&gt;(holder)-&gt;pointer();</span>
+<span class="lineNum">    2625 </span><span class="lineNoCov">          0 :         static_cast&lt;ThreadLocalValueHolderBase*&gt;(pthread_getspecific(key_));</span>
+<span class="lineNum">    2626 </span><span class="lineNoCov">          0 :     if (holder != NULL) {</span>
+<span class="lineNum">    2627 </span><span class="lineNoCov">          0 :       return CheckedDowncastToActualType&lt;ValueHolder&gt;(holder)-&gt;pointer();</span>
 <span class="lineNum">    2628 </span>            :     }
 <span class="lineNum">    2629 </span>            : 
-<span class="lineNum">    2630 </span><span class="lineCov">         12 :     ValueHolder* const new_holder = new ValueHolder(default_);</span>
-<span class="lineNum">    2631 </span><span class="lineCov">         12 :     ThreadLocalValueHolderBase* const holder_base = new_holder;</span>
-<span class="lineNum">    2632 </span><span class="lineCov">         12 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_setspecific(key_, holder_base));</span>
-<span class="lineNum">    2633 </span><span class="lineCov">         12 :     return new_holder-&gt;pointer();</span>
+<span class="lineNum">    2630 </span><span class="lineNoCov">          0 :     ValueHolder* const new_holder = new ValueHolder(default_);</span>
+<span class="lineNum">    2631 </span><span class="lineNoCov">          0 :     ThreadLocalValueHolderBase* const holder_base = new_holder;</span>
+<span class="lineNum">    2632 </span><span class="lineNoCov">          0 :     GTEST_CHECK_POSIX_SUCCESS_(pthread_setspecific(key_, holder_base));</span>
+<span class="lineNum">    2633 </span><span class="lineNoCov">          0 :     return new_holder-&gt;pointer();</span>
 <span class="lineNum">    2634 </span>            :   }
 <span class="lineNum">    2635 </span>            : 
 <span class="lineNum">    2636 </span>            :   // A key pthreads uses for looking up per-thread values.
@@ -2854,8 +2854,8 @@
 <span class="lineNum">    2792 </span>            : inline char ToLower(char ch) {
 <a name="2793"><span class="lineNum">    2793 </span>            :   return static_cast&lt;char&gt;(tolower(static_cast&lt;unsigned char&gt;(ch)));</a>
 <span class="lineNum">    2794 </span>            : }
-<span class="lineNum">    2795 </span><span class="lineCov">       2800 : inline char ToUpper(char ch) {</span>
-<span class="lineNum">    2796 </span><span class="lineCov">       2800 :   return static_cast&lt;char&gt;(toupper(static_cast&lt;unsigned char&gt;(ch)));</span>
+<span class="lineNum">    2795 </span><span class="lineCov">        280 : inline char ToUpper(char ch) {</span>
+<span class="lineNum">    2796 </span><span class="lineCov">        280 :   return static_cast&lt;char&gt;(toupper(static_cast&lt;unsigned char&gt;(ch)));</span>
 <span class="lineNum">    2797 </span>            : }
 <span class="lineNum">    2798 </span>            : 
 <span class="lineNum">    2799 </span>            : // The testing::internal::posix namespace holds wrappers for common
@@ -2907,11 +2907,11 @@
 <span class="lineNum">    2845 </span>            : 
 <a name="2846"><span class="lineNum">    2846 </span>            : typedef struct stat StatStruct;</a>
 <a name="2847"><span class="lineNum">    2847 </span>            : </a>
-<a name="2848"><span class="lineNum">    2848 </span><span class="lineCov">         10 : inline int FileNo(FILE* file) { return fileno(file); }</span></a>
-<a name="2849"><span class="lineNum">    2849 </span><span class="lineCov">         10 : inline int IsATTY(int fd) { return isatty(fd); }</span></a>
+<a name="2848"><span class="lineNum">    2848 </span><span class="lineCov">          1 : inline int FileNo(FILE* file) { return fileno(file); }</span></a>
+<a name="2849"><span class="lineNum">    2849 </span><span class="lineCov">          1 : inline int IsATTY(int fd) { return isatty(fd); }</span></a>
 <span class="lineNum">    2850 </span><span class="lineNoCov">          0 : inline int Stat(const char* path, StatStruct* buf) { return stat(path, buf); }</span>
-<span class="lineNum">    2851 </span><span class="lineCov">         10 : inline int StrCaseCmp(const char* s1, const char* s2) {</span>
-<a name="2852"><span class="lineNum">    2852 </span><span class="lineCov">         10 :   return strcasecmp(s1, s2);</span></a>
+<span class="lineNum">    2851 </span><span class="lineCov">          1 : inline int StrCaseCmp(const char* s1, const char* s2) {</span>
+<a name="2852"><span class="lineNum">    2852 </span><span class="lineCov">          1 :   return strcasecmp(s1, s2);</span></a>
 <span class="lineNum">    2853 </span>            : }
 <a name="2854"><span class="lineNum">    2854 </span><span class="lineNoCov">          0 : inline char* StrDup(const char* src) { return strdup(src); }</span></a>
 <span class="lineNum">    2855 </span>            : inline int RmDir(const char* dir) { return rmdir(dir); }
@@ -2958,7 +2958,7 @@
 <span class="lineNum">    2896 </span><span class="lineNoCov">          0 : inline int Close(int fd) { return close(fd); }</span>
 <a name="2897"><span class="lineNum">    2897 </span><span class="lineNoCov">          0 : inline const char* StrError(int errnum) { return strerror(errnum); }</span></a>
 <span class="lineNum">    2898 </span>            : #endif
-<span class="lineNum">    2899 </span><span class="lineCov">        220 : inline const char* GetEnv(const char* name) {</span>
+<span class="lineNum">    2899 </span><span class="lineCov">         22 : inline const char* GetEnv(const char* name) {</span>
 <span class="lineNum">    2900 </span>            : #if GTEST_OS_WINDOWS_MOBILE
 <span class="lineNum">    2901 </span>            :   // We are on Windows CE, which has no environment variables.
 <span class="lineNum">    2902 </span>            :   return NULL;
@@ -2968,7 +2968,7 @@
 <span class="lineNum">    2906 </span>            :   const char* const env = getenv(name);
 <span class="lineNum">    2907 </span>            :   return (env != NULL &amp;&amp; env[0] != '\0') ? env : NULL;
 <span class="lineNum">    2908 </span>            : #else
-<span class="lineNum">    2909 </span><span class="lineCov">        220 :   return getenv(name);</span>
+<span class="lineNum">    2909 </span><span class="lineCov">         22 :   return getenv(name);</span>
 <span class="lineNum">    2910 </span>            : #endif
 <span class="lineNum">    2911 </span>            : }
 <span class="lineNum">    2912 </span>            : 
@@ -3216,7 +3216,7 @@
 <span class="lineNum">    3154 </span>            : // latter (it causes an access violation if you do).  The Message
 <a name="3155"><span class="lineNum">    3155 </span>            : // class hides this difference by treating a NULL char pointer as</a>
 <span class="lineNum">    3156 </span>            : // &quot;(null)&quot;.
-<span class="lineNum">    3157 </span><span class="lineCov">        118 : class GTEST_API_ Message {</span>
+<span class="lineNum">    3157 </span><span class="lineCov">        106 : class GTEST_API_ Message {</span>
 <span class="lineNum">    3158 </span>            :  private:
 <span class="lineNum">    3159 </span>            :   // The type of basic IO manipulators (endl, ends, and flush) for
 <span class="lineNum">    3160 </span>            :   // narrow streams.
@@ -3246,7 +3246,7 @@
 <span class="lineNum">    3184 </span>            : #else
 <a name="3185"><span class="lineNum">    3185 </span>            :   // Streams a non-pointer value to this object.</a>
 <span class="lineNum">    3186 </span>            :   template &lt;typename T&gt;
-<span class="lineNum">    3187 </span><span class="lineCov">       3588 :   inline Message&amp; operator &lt;&lt;(const T&amp; val) {</span>
+<span class="lineNum">    3187 </span><span class="lineCov">        369 :   inline Message&amp; operator &lt;&lt;(const T&amp; val) {</span>
 <span class="lineNum">    3188 </span>            :     // Some libraries overload &lt;&lt; for STL containers.  These
 <span class="lineNum">    3189 </span>            :     // overloads are defined in the global namespace instead of ::std.
 <span class="lineNum">    3190 </span>            :     //
@@ -3262,8 +3262,8 @@
 <span class="lineNum">    3200 </span>            :     // overloads of &lt;&lt; defined in the global namespace and those
 <span class="lineNum">    3201 </span>            :     // visible via Koenig lookup are both exposed in this function.
 <span class="lineNum">    3202 </span>            :     using ::operator &lt;&lt;;
-<span class="lineNum">    3203 </span><span class="lineCov">       3588 :     *ss_ &lt;&lt; val;</span>
-<span class="lineNum">    3204 </span><span class="lineCov">       3588 :     return *this;</span>
+<span class="lineNum">    3203 </span><span class="lineCov">        369 :     *ss_ &lt;&lt; val;</span>
+<span class="lineNum">    3204 </span><span class="lineCov">        369 :     return *this;</span>
 <span class="lineNum">    3205 </span>            :   }
 <span class="lineNum">    3206 </span>            : 
 <span class="lineNum">    3207 </span>            :   // Streams a pointer value to this object.
@@ -3280,13 +3280,13 @@
 <span class="lineNum">    3218 </span>            :   // ensure consistent result across compilers, we always treat NULL
 <a name="3219"><span class="lineNum">    3219 </span>            :   // as &quot;(null)&quot;.</a>
 <span class="lineNum">    3220 </span>            :   template &lt;typename T&gt;
-<span class="lineNum">    3221 </span><span class="lineCov">         43 :   inline Message&amp; operator &lt;&lt;(T* const&amp; pointer) {  // NOLINT</span>
-<span class="lineNum">    3222 </span><span class="lineCov">         43 :     if (pointer == NULL) {</span>
+<span class="lineNum">    3221 </span><span class="lineCov">         17 :   inline Message&amp; operator &lt;&lt;(T* const&amp; pointer) {  // NOLINT</span>
+<span class="lineNum">    3222 </span><span class="lineCov">         17 :     if (pointer == NULL) {</span>
 <span class="lineNum">    3223 </span><span class="lineNoCov">          0 :       *ss_ &lt;&lt; &quot;(null)&quot;;</span>
 <span class="lineNum">    3224 </span>            :     } else {
-<span class="lineNum">    3225 </span><span class="lineCov">         43 :       *ss_ &lt;&lt; pointer;</span>
+<span class="lineNum">    3225 </span><span class="lineCov">         17 :       *ss_ &lt;&lt; pointer;</span>
 <span class="lineNum">    3226 </span>            :     }
-<span class="lineNum">    3227 </span><span class="lineCov">         43 :     return *this;</span>
+<span class="lineNum">    3227 </span><span class="lineCov">         17 :     return *this;</span>
 <span class="lineNum">    3228 </span>            :   }
 <span class="lineNum">    3229 </span>            : #endif  // GTEST_OS_SYMBIAN
 <span class="lineNum">    3230 </span>            : 
@@ -3363,8 +3363,8 @@
 <span class="lineNum">    3301 </span>            : };
 <a name="3302"><span class="lineNum">    3302 </span>            : </a>
 <span class="lineNum">    3303 </span>            : // Streams a Message to an ostream.
-<span class="lineNum">    3304 </span><span class="lineCov">          7 : inline std::ostream&amp; operator &lt;&lt;(std::ostream&amp; os, const Message&amp; sb) {</span>
-<span class="lineNum">    3305 </span><span class="lineCov">          7 :   return os &lt;&lt; sb.GetString();</span>
+<span class="lineNum">    3304 </span><span class="lineNoCov">          0 : inline std::ostream&amp; operator &lt;&lt;(std::ostream&amp; os, const Message&amp; sb) {</span>
+<span class="lineNum">    3305 </span><span class="lineNoCov">          0 :   return os &lt;&lt; sb.GetString();</span>
 <span class="lineNum">    3306 </span>            : }
 <span class="lineNum">    3307 </span>            : 
 <span class="lineNum">    3308 </span>            : namespace internal {
@@ -3374,8 +3374,8 @@
 <span class="lineNum">    3312 </span>            : // ::std::string, ::wstring, or ::std::wstring object, each NUL
 <a name="3313"><span class="lineNum">    3313 </span>            : // character in it is replaced with &quot;\\0&quot;.</a>
 <span class="lineNum">    3314 </span>            : template &lt;typename T&gt;
-<span class="lineNum">    3315 </span><span class="lineCov">        762 : std::string StreamableToString(const T&amp; streamable) {</span>
-<span class="lineNum">    3316 </span><span class="lineCov">        762 :   return (Message() &lt;&lt; streamable).GetString();</span>
+<span class="lineNum">    3315 </span><span class="lineCov">         76 : std::string StreamableToString(const T&amp; streamable) {</span>
+<span class="lineNum">    3316 </span><span class="lineCov">         76 :   return (Message() &lt;&lt; streamable).GetString();</span>
 <span class="lineNum">    3317 </span>            : }
 <span class="lineNum">    3318 </span>            : 
 <span class="lineNum">    3319 </span>            : }  // namespace internal
@@ -3605,23 +3605,23 @@
 <span class="lineNum">    3543 </span>            : // Names are NOT checked for syntax correctness -- no checking for illegal
 <a name="3544"><span class="lineNum">    3544 </span>            : // characters, malformed paths, etc.</a>
 <span class="lineNum">    3545 </span>            : 
-<a name="3546"><span class="lineNum">    3546 </span><span class="lineCov">         10 : class GTEST_API_ FilePath {</span></a>
+<a name="3546"><span class="lineNum">    3546 </span><span class="lineCov">          1 : class GTEST_API_ FilePath {</span></a>
 <a name="3547"><span class="lineNum">    3547 </span>            :  public:</a>
-<span class="lineNum">    3548 </span><span class="lineCov">         10 :   FilePath() : pathname_(&quot;&quot;) { }</span>
+<span class="lineNum">    3548 </span><span class="lineCov">          1 :   FilePath() : pathname_(&quot;&quot;) { }</span>
 <a name="3549"><span class="lineNum">    3549 </span><span class="lineNoCov">          0 :   FilePath(const FilePath&amp; rhs) : pathname_(rhs.pathname_) { }</span></a>
 <span class="lineNum">    3550 </span>            : 
-<span class="lineNum">    3551 </span><span class="lineCov">         10 :   explicit FilePath(const std::string&amp; pathname) : pathname_(pathname) {</span>
-<span class="lineNum">    3552 </span><span class="lineCov">         10 :     Normalize();</span>
-<a name="3553"><span class="lineNum">    3553 </span><span class="lineCov">         10 :   }</span></a>
+<span class="lineNum">    3551 </span><span class="lineCov">          1 :   explicit FilePath(const std::string&amp; pathname) : pathname_(pathname) {</span>
+<span class="lineNum">    3552 </span><span class="lineCov">          1 :     Normalize();</span>
+<a name="3553"><span class="lineNum">    3553 </span><span class="lineCov">          1 :   }</span></a>
 <span class="lineNum">    3554 </span>            : 
 <span class="lineNum">    3555 </span><span class="lineNoCov">          0 :   FilePath&amp; operator=(const FilePath&amp; rhs) {</span>
 <span class="lineNum">    3556 </span><span class="lineNoCov">          0 :     Set(rhs);</span>
 <span class="lineNum">    3557 </span><span class="lineNoCov">          0 :     return *this;</span>
 <a name="3558"><span class="lineNum">    3558 </span>            :   }</a>
 <span class="lineNum">    3559 </span>            : 
-<span class="lineNum">    3560 </span><span class="lineCov">         10 :   void Set(const FilePath&amp; rhs) {</span>
-<span class="lineNum">    3561 </span><span class="lineCov">         10 :     pathname_ = rhs.pathname_;</span>
-<a name="3562"><span class="lineNum">    3562 </span><span class="lineCov">         10 :   }</span></a>
+<span class="lineNum">    3560 </span><span class="lineCov">          1 :   void Set(const FilePath&amp; rhs) {</span>
+<span class="lineNum">    3561 </span><span class="lineCov">          1 :     pathname_ = rhs.pathname_;</span>
+<a name="3562"><span class="lineNum">    3562 </span><span class="lineCov">          1 :   }</span></a>
 <a name="3563"><span class="lineNum">    3563 </span>            : </a>
 <span class="lineNum">    3564 </span><span class="lineNoCov">          0 :   const std::string&amp; string() const { return pathname_; }</span>
 <span class="lineNum">    3565 </span><span class="lineNoCov">          0 :   const char* c_str() const { return pathname_.c_str(); }</span>
@@ -3657,7 +3657,7 @@
 <span class="lineNum">    3595 </span>            :                                          const char* extension);
 <a name="3596"><span class="lineNum">    3596 </span>            : </a>
 <span class="lineNum">    3597 </span>            :   // Returns true iff the path is &quot;&quot;.
-<span class="lineNum">    3598 </span><span class="lineCov">        649 :   bool IsEmpty() const { return pathname_.empty(); }</span>
+<span class="lineNum">    3598 </span><span class="lineCov">         66 :   bool IsEmpty() const { return pathname_.empty(); }</span>
 <span class="lineNum">    3599 </span>            : 
 <span class="lineNum">    3600 </span>            :   // If input name has a trailing separator character, removes it and returns
 <span class="lineNum">    3601 </span>            :   // the name, otherwise return the name string unmodified.
@@ -7436,12 +7436,12 @@
 <span class="lineNum">    7374 </span>            : // returned for different types.  Calling the function twice with the
 <a name="7375"><span class="lineNum">    7375 </span>            : // same type argument is guaranteed to return the same ID.</a>
 <span class="lineNum">    7376 </span>            : template &lt;typename T&gt;
-<span class="lineNum">    7377 </span><span class="lineCov">        649 : TypeId GetTypeId() {</span>
+<span class="lineNum">    7377 </span><span class="lineCov">         66 : TypeId GetTypeId() {</span>
 <span class="lineNum">    7378 </span>            :   // The compiler is required to allocate a different
 <span class="lineNum">    7379 </span>            :   // TypeIdHelper&lt;T&gt;::dummy_ variable for each T used to instantiate
 <span class="lineNum">    7380 </span>            :   // the template.  Therefore, the address of dummy_ is guaranteed to
 <span class="lineNum">    7381 </span>            :   // be unique.
-<span class="lineNum">    7382 </span><span class="lineCov">        649 :   return &amp;(TypeIdHelper&lt;T&gt;::dummy_);</span>
+<span class="lineNum">    7382 </span><span class="lineCov">         66 :   return &amp;(TypeIdHelper&lt;T&gt;::dummy_);</span>
 <span class="lineNum">    7383 </span>            : }
 <span class="lineNum">    7384 </span>            : 
 <span class="lineNum">    7385 </span>            : // Returns the type ID of ::testing::Test.  Always call this instead
@@ -7462,7 +7462,7 @@
 <span class="lineNum">    7400 </span>            :   virtual Test* CreateTest() = 0;
 <a name="7401"><span class="lineNum">    7401 </span>            : </a>
 <span class="lineNum">    7402 </span>            :  protected:
-<span class="lineNum">    7403 </span><span class="lineCov">         64 :   TestFactoryBase() {}</span>
+<span class="lineNum">    7403 </span><span class="lineCov">         65 :   TestFactoryBase() {}</span>
 <span class="lineNum">    7404 </span>            : 
 <span class="lineNum">    7405 </span>            :  private:
 <span class="lineNum">    7406 </span>            :   GTEST_DISALLOW_COPY_AND_ASSIGN_(TestFactoryBase);
@@ -7471,9 +7471,9 @@
 <span class="lineNum">    7409 </span>            : // This class provides implementation of TeastFactoryBase interface.
 <a name="7410"><span class="lineNum">    7410 </span>            : // It is used in TEST and TEST_F macros.</a>
 <span class="lineNum">    7411 </span>            : template &lt;class TestClass&gt;
-<a name="7412"><span class="lineNum">    7412 </span><span class="lineCov">         64 : class TestFactoryImpl : public TestFactoryBase {</span></a>
+<a name="7412"><span class="lineNum">    7412 </span><span class="lineCov">         65 : class TestFactoryImpl : public TestFactoryBase {</span></a>
 <span class="lineNum">    7413 </span>            :  public:
-<span class="lineNum">    7414 </span><span class="lineCov">         64 :   virtual Test* CreateTest() { return new TestClass; }</span>
+<span class="lineNum">    7414 </span><span class="lineCov">         65 :   virtual Test* CreateTest() { return new TestClass; }</span>
 <span class="lineNum">    7415 </span>            : };
 <span class="lineNum">    7416 </span>            : 
 <span class="lineNum">    7417 </span>            : #if GTEST_OS_WINDOWS
@@ -7699,7 +7699,7 @@
 <span class="lineNum">    7637 </span>            :  public:
 <a name="7638"><span class="lineNum">    7638 </span>            :   static const UInt32 kMaxRange = 1u &lt;&lt; 31;</a>
 <span class="lineNum">    7639 </span>            : 
-<a name="7640"><span class="lineNum">    7640 </span><span class="lineCov">         10 :   explicit Random(UInt32 seed) : state_(seed) {}</span></a>
+<a name="7640"><span class="lineNum">    7640 </span><span class="lineCov">          1 :   explicit Random(UInt32 seed) : state_(seed) {}</span></a>
 <span class="lineNum">    7641 </span>            : 
 <span class="lineNum">    7642 </span><span class="lineNoCov">          0 :   void Reseed(UInt32 seed) { state_ = seed; }</span>
 <span class="lineNum">    7643 </span>            : 
@@ -7888,7 +7888,7 @@
 <span class="lineNum">    7826 </span>            : 
 <a name="7827"><span class="lineNum">    7827 </span>            : typedef char IsNotContainer;</a>
 <span class="lineNum">    7828 </span>            : template &lt;class C&gt;
-<span class="lineNum">    7829 </span><span class="lineCov">          4 : IsNotContainer IsContainerTest(long /* dummy */) { return '\0'; }</span>
+<span class="lineNum">    7829 </span><span class="lineNoCov">          0 : IsNotContainer IsContainerTest(long /* dummy */) { return '\0'; }</span>
 <span class="lineNum">    7830 </span>            : 
 <span class="lineNum">    7831 </span>            : // EnableIf&lt;condition&gt;::type is void when 'Cond' is true, and
 <span class="lineNum">    7832 </span>            : // undefined when 'Cond' is false.  To use SFINAE to make a function
@@ -8356,7 +8356,7 @@
 <span class="lineNum">    8294 </span>            : };
 <a name="8295"><span class="lineNum">    8295 </span>            : </a>
 <span class="lineNum">    8296 </span>            : // Factory interface for death tests.  May be mocked out for testing.
-<a name="8297"><span class="lineNum">    8297 </span><span class="lineCov">         10 : class DeathTestFactory {</span></a>
+<a name="8297"><span class="lineNum">    8297 </span><span class="lineCov">          1 : class DeathTestFactory {</span></a>
 <span class="lineNum">    8298 </span>            :  public:
 <span class="lineNum">    8299 </span><span class="lineNoCov">          0 :   virtual ~DeathTestFactory() { }</span>
 <span class="lineNum">    8300 </span>            :   virtual bool Create(const char* statement, const RE* regex,
@@ -8364,7 +8364,7 @@
 <span class="lineNum">    8302 </span>            : };
 <a name="8303"><span class="lineNum">    8303 </span>            : </a>
 <span class="lineNum">    8304 </span>            : // A concrete DeathTestFactory implementation for normal use.
-<span class="lineNum">    8305 </span><span class="lineCov">         10 : class DefaultDeathTestFactory : public DeathTestFactory {</span>
+<span class="lineNum">    8305 </span><span class="lineCov">          1 : class DefaultDeathTestFactory : public DeathTestFactory {</span>
 <span class="lineNum">    8306 </span>            :  public:
 <span class="lineNum">    8307 </span>            :   virtual bool Create(const char* statement, const RE* regex,
 <span class="lineNum">    8308 </span>            :                       const char* file, int line, DeathTest** test);
@@ -9468,7 +9468,7 @@
 <span class="lineNum">    9406 </span>            : // Used to print a value that is not an STL-style container when the
 <a name="9407"><span class="lineNum">    9407 </span>            : // user doesn't define PrintTo() for it.</a>
 <span class="lineNum">    9408 </span>            : template &lt;typename T&gt;
-<span class="lineNum">    9409 </span><span class="lineCov">          4 : void DefaultPrintNonContainerTo(const T&amp; value, ::std::ostream* os) {</span>
+<span class="lineNum">    9409 </span><span class="lineNoCov">          0 : void DefaultPrintNonContainerTo(const T&amp; value, ::std::ostream* os) {</span>
 <span class="lineNum">    9410 </span>            :   // With the following statement, during unqualified name lookup,
 <span class="lineNum">    9411 </span>            :   // testing::internal2::operator&lt;&lt; appears as if it was declared in
 <span class="lineNum">    9412 </span>            :   // the nearest enclosing namespace that contains both
@@ -9495,8 +9495,8 @@
 <span class="lineNum">    9433 </span>            :   // impossible to define #1 (e.g. when foo is ::std, defining
 <span class="lineNum">    9434 </span>            :   // anything in it is undefined behavior unless you are a compiler
 <span class="lineNum">    9435 </span>            :   // vendor.).
-<span class="lineNum">    9436 </span><span class="lineCov">          4 :   *os &lt;&lt; value;</span>
-<span class="lineNum">    9437 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">    9436 </span><span class="lineNoCov">          0 :   *os &lt;&lt; value;</span>
+<span class="lineNum">    9437 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">    9438 </span>            : 
 <span class="lineNum">    9439 </span>            : }  // namespace testing_internal
 <span class="lineNum">    9440 </span>            : 
@@ -9585,11 +9585,11 @@
 <span class="lineNum">    9523 </span>            : // Used to print a non-container, non-pointer value when the user
 <a name="9524"><span class="lineNum">    9524 </span>            : // doesn't define PrintTo() for it.</a>
 <span class="lineNum">    9525 </span>            : template &lt;typename T&gt;
-<span class="lineNum">    9526 </span><span class="lineCov">          4 : void DefaultPrintTo(IsNotContainer /* dummy */,</span>
+<span class="lineNum">    9526 </span><span class="lineNoCov">          0 : void DefaultPrintTo(IsNotContainer /* dummy */,</span>
 <span class="lineNum">    9527 </span>            :                     false_type /* is not a pointer */,
 <span class="lineNum">    9528 </span>            :                     const T&amp; value, ::std::ostream* os) {
-<span class="lineNum">    9529 </span><span class="lineCov">          4 :   ::testing_internal::DefaultPrintNonContainerTo(value, os);</span>
-<span class="lineNum">    9530 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">    9529 </span><span class="lineNoCov">          0 :   ::testing_internal::DefaultPrintNonContainerTo(value, os);</span>
+<span class="lineNum">    9530 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">    9531 </span>            : 
 <span class="lineNum">    9532 </span>            : // Prints the given value using the &lt;&lt; operator if it has one;
 <span class="lineNum">    9533 </span>            : // otherwise prints the bytes in it.  This is what
@@ -9603,7 +9603,7 @@
 <span class="lineNum">    9541 </span>            : // or there is already a &lt;&lt; operator but it doesn't do what the user
 <a name="9542"><span class="lineNum">    9542 </span>            : // wants).</a>
 <span class="lineNum">    9543 </span>            : template &lt;typename T&gt;
-<span class="lineNum">    9544 </span><span class="lineCov">          4 : void PrintTo(const T&amp; value, ::std::ostream* os) {</span>
+<span class="lineNum">    9544 </span><span class="lineNoCov">          0 : void PrintTo(const T&amp; value, ::std::ostream* os) {</span>
 <span class="lineNum">    9545 </span>            :   // DefaultPrintTo() is overloaded.  The type of its first two
 <span class="lineNum">    9546 </span>            :   // arguments determine which version will be picked.  If T is an
 <span class="lineNum">    9547 </span>            :   // STL-style container, the version for container will be called; if
@@ -9626,8 +9626,8 @@
 <span class="lineNum">    9564 </span>            :   //
 <span class="lineNum">    9565 </span>            :   //   PrintTo(const T&amp; x, ...);
 <span class="lineNum">    9566 </span>            :   //   PrintTo(T* x, ...);
-<span class="lineNum">    9567 </span><span class="lineCov">          4 :   DefaultPrintTo(IsContainerTest&lt;T&gt;(0), is_pointer&lt;T&gt;(), value, os);</span>
-<span class="lineNum">    9568 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">    9567 </span><span class="lineNoCov">          0 :   DefaultPrintTo(IsContainerTest&lt;T&gt;(0), is_pointer&lt;T&gt;(), value, os);</span>
+<span class="lineNum">    9568 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">    9569 </span>            : 
 <span class="lineNum">    9570 </span>            : // The following list of PrintTo() overloads tells
 <span class="lineNum">    9571 </span>            : // UniversalPrinter&lt;T&gt;::Print() how to print standard types (built-in
@@ -9841,7 +9841,7 @@
 <span class="lineNum">    9779 </span>            :   // Note: we deliberately don't call this PrintTo(), as that name
 <a name="9780"><span class="lineNum">    9780 </span>            :   // conflicts with ::testing::internal::PrintTo in the body of the</a>
 <span class="lineNum">    9781 </span>            :   // function.
-<span class="lineNum">    9782 </span><span class="lineCov">          4 :   static void Print(const T&amp; value, ::std::ostream* os) {</span>
+<span class="lineNum">    9782 </span><span class="lineNoCov">          0 :   static void Print(const T&amp; value, ::std::ostream* os) {</span>
 <span class="lineNum">    9783 </span>            :     // By default, ::testing::internal::PrintTo() is used for printing
 <span class="lineNum">    9784 </span>            :     // the value.
 <span class="lineNum">    9785 </span>            :     //
@@ -9850,8 +9850,8 @@
 <span class="lineNum">    9788 </span>            :     // be visible here.  Since it is more specific than the generic ones
 <span class="lineNum">    9789 </span>            :     // in ::testing::internal, it will be picked by the compiler in the
 <span class="lineNum">    9790 </span>            :     // following statement - exactly what we want.
-<span class="lineNum">    9791 </span><span class="lineCov">          4 :     PrintTo(value, os);</span>
-<span class="lineNum">    9792 </span><span class="lineCov">          4 :   }</span>
+<span class="lineNum">    9791 </span><span class="lineNoCov">          0 :     PrintTo(value, os);</span>
+<span class="lineNum">    9792 </span><span class="lineNoCov">          0 :   }</span>
 <span class="lineNum">    9793 </span>            : 
 <span class="lineNum">    9794 </span>            : #ifdef _MSC_VER
 <span class="lineNum">    9795 </span>            : # pragma warning(pop)           // Restores the warning state.
@@ -9933,9 +9933,9 @@
 <span class="lineNum">    9871 </span>            : template &lt;typename T&gt;
 <a name="9872"><span class="lineNum">    9872 </span>            : class UniversalTersePrinter {</a>
 <span class="lineNum">    9873 </span>            :  public:
-<span class="lineNum">    9874 </span><span class="lineCov">          4 :   static void Print(const T&amp; value, ::std::ostream* os) {</span>
-<span class="lineNum">    9875 </span><span class="lineCov">          4 :     UniversalPrint(value, os);</span>
-<span class="lineNum">    9876 </span><span class="lineCov">          4 :   }</span>
+<span class="lineNum">    9874 </span><span class="lineNoCov">          0 :   static void Print(const T&amp; value, ::std::ostream* os) {</span>
+<span class="lineNum">    9875 </span><span class="lineNoCov">          0 :     UniversalPrint(value, os);</span>
+<span class="lineNum">    9876 </span><span class="lineNoCov">          0 :   }</span>
 <span class="lineNum">    9877 </span>            : };
 <span class="lineNum">    9878 </span>            : template &lt;typename T&gt;
 <span class="lineNum">    9879 </span>            : class UniversalTersePrinter&lt;T&amp;&gt; {
@@ -10002,12 +10002,12 @@
 <span class="lineNum">    9940 </span>            : // (const) char pointer, this prints both the pointer and the
 <a name="9941"><span class="lineNum">    9941 </span>            : // NUL-terminated string.</a>
 <span class="lineNum">    9942 </span>            : template &lt;typename T&gt;
-<span class="lineNum">    9943 </span><span class="lineCov">          4 : void UniversalPrint(const T&amp; value, ::std::ostream* os) {</span>
+<span class="lineNum">    9943 </span><span class="lineNoCov">          0 : void UniversalPrint(const T&amp; value, ::std::ostream* os) {</span>
 <span class="lineNum">    9944 </span>            :   // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
 <span class="lineNum">    9945 </span>            :   // UniversalPrinter with T directly.
 <span class="lineNum">    9946 </span>            :   typedef T T1;
-<span class="lineNum">    9947 </span><span class="lineCov">          4 :   UniversalPrinter&lt;T1&gt;::Print(value, os);</span>
-<span class="lineNum">    9948 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">    9947 </span><span class="lineNoCov">          0 :   UniversalPrinter&lt;T1&gt;::Print(value, os);</span>
+<span class="lineNum">    9948 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">    9949 </span>            : 
 <span class="lineNum">    9950 </span>            : #if GTEST_HAS_TR1_TUPLE
 <span class="lineNum">    9951 </span>            : typedef ::std::vector&lt;string&gt; Strings;
@@ -10097,10 +10097,10 @@
 <span class="lineNum">   10035 </span>            : }  // namespace internal
 <a name="10036"><span class="lineNum">   10036 </span>            : </a>
 <span class="lineNum">   10037 </span>            : template &lt;typename T&gt;
-<span class="lineNum">   10038 </span><span class="lineCov">          4 : ::std::string PrintToString(const T&amp; value) {</span>
-<span class="lineNum">   10039 </span><span class="lineCov">          8 :   ::std::stringstream ss;</span>
-<span class="lineNum">   10040 </span><span class="lineCov">          4 :   internal::UniversalTersePrinter&lt;T&gt;::Print(value, &amp;ss);</span>
-<span class="lineNum">   10041 </span><span class="lineCov">          8 :   return ss.str();</span>
+<span class="lineNum">   10038 </span><span class="lineNoCov">          0 : ::std::string PrintToString(const T&amp; value) {</span>
+<span class="lineNum">   10039 </span><span class="lineNoCov">          0 :   ::std::stringstream ss;</span>
+<span class="lineNum">   10040 </span><span class="lineNoCov">          0 :   internal::UniversalTersePrinter&lt;T&gt;::Print(value, &amp;ss);</span>
+<span class="lineNum">   10041 </span><span class="lineNoCov">          0 :   return ss.str();</span>
 <span class="lineNum">   10042 </span>            : }
 <span class="lineNum">   10043 </span>            : 
 <span class="lineNum">   10044 </span>            : }  // namespace testing
@@ -10616,7 +10616,7 @@
 <span class="lineNum">   10554 </span>            : // descriptors.
 <a name="10555"><span class="lineNum">   10555 </span>            : class ParameterizedTestCaseRegistry {</a>
 <a name="10556"><span class="lineNum">   10556 </span>            :  public:</a>
-<span class="lineNum">   10557 </span><span class="lineCov">         10 :   ParameterizedTestCaseRegistry() {}</span>
+<span class="lineNum">   10557 </span><span class="lineCov">          1 :   ParameterizedTestCaseRegistry() {}</span>
 <span class="lineNum">   10558 </span><span class="lineNoCov">          0 :   ~ParameterizedTestCaseRegistry() {</span>
 <span class="lineNum">   10559 </span><span class="lineNoCov">          0 :     for (TestCaseInfoContainer::iterator it = test_case_infos_.begin();</span>
 <span class="lineNum">   10560 </span><span class="lineNoCov">          0 :          it != test_case_infos_.end(); ++it) {</span>
@@ -10657,12 +10657,12 @@
 <span class="lineNum">   10595 </span>            :     }
 <a name="10596"><span class="lineNum">   10596 </span>            :     return typed_test_info;</a>
 <span class="lineNum">   10597 </span>            :   }
-<span class="lineNum">   10598 </span><span class="lineCov">         10 :   void RegisterTests() {</span>
-<span class="lineNum">   10599 </span><span class="lineCov">         30 :     for (TestCaseInfoContainer::iterator it = test_case_infos_.begin();</span>
-<span class="lineNum">   10600 </span><span class="lineCov">         20 :          it != test_case_infos_.end(); ++it) {</span>
+<span class="lineNum">   10598 </span><span class="lineCov">          1 :   void RegisterTests() {</span>
+<span class="lineNum">   10599 </span><span class="lineCov">          3 :     for (TestCaseInfoContainer::iterator it = test_case_infos_.begin();</span>
+<span class="lineNum">   10600 </span><span class="lineCov">          2 :          it != test_case_infos_.end(); ++it) {</span>
 <span class="lineNum">   10601 </span><span class="lineNoCov">          0 :       (*it)-&gt;RegisterTests();</span>
 <span class="lineNum">   10602 </span>            :     }
-<span class="lineNum">   10603 </span><span class="lineCov">         10 :   }</span>
+<span class="lineNum">   10603 </span><span class="lineCov">          1 :   }</span>
 <span class="lineNum">   10604 </span>            : 
 <span class="lineNum">   10605 </span>            :  private:
 <span class="lineNum">   10606 </span>            :   typedef ::std::vector&lt;ParameterizedTestCaseInfoBase*&gt; TestCaseInfoContainer;
@@ -17149,7 +17149,7 @@
 <span class="lineNum">   17087 </span>            : // assertion or an explicit FAIL(), ADD_FAILURE(), or SUCCESS()).
 <a name="17088"><span class="lineNum">   17088 </span>            : //</a>
 <span class="lineNum">   17089 </span>            : // Don't inherit from TestPartResult as its destructor is not virtual.
-<span class="lineNum">   17090 </span><span class="lineCov">         16 : class GTEST_API_ TestPartResult {</span>
+<span class="lineNum">   17090 </span><span class="lineNoCov">          0 : class GTEST_API_ TestPartResult {</span>
 <span class="lineNum">   17091 </span>            :  public:
 <span class="lineNum">   17092 </span>            :   // The possible outcomes of a test part (i.e. an assertion or an
 <span class="lineNum">   17093 </span>            :   // explicit SUCCEED(), FAIL(), or ADD_FAILURE()).
@@ -17162,7 +17162,7 @@
 <span class="lineNum">   17100 </span>            :   // C'tor.  TestPartResult does NOT have a default constructor.
 <a name="17101"><span class="lineNum">   17101 </span>            :   // Always use this constructor (with parameters) to create a</a>
 <span class="lineNum">   17102 </span>            :   // TestPartResult object.
-<span class="lineNum">   17103 </span><span class="lineCov">          7 :   TestPartResult(Type a_type,</span>
+<span class="lineNum">   17103 </span><span class="lineNoCov">          0 :   TestPartResult(Type a_type,</span>
 <span class="lineNum">   17104 </span>            :                  const char* a_file_name,
 <span class="lineNum">   17105 </span>            :                  int a_line_number,
 <span class="lineNum">   17106 </span>            :                  const char* a_message)
@@ -17170,33 +17170,33 @@
 <span class="lineNum">   17108 </span>            :         file_name_(a_file_name == NULL ? &quot;&quot; : a_file_name),
 <span class="lineNum">   17109 </span>            :         line_number_(a_line_number),
 <span class="lineNum">   17110 </span>            :         summary_(ExtractSummary(a_message)),
-<span class="lineNum">   17111 </span><span class="lineCov">          7 :         message_(a_message) {</span>
-<span class="lineNum">   17112 </span><span class="lineCov">          7 :   }</span>
+<span class="lineNum">   17111 </span><span class="lineNoCov">          0 :         message_(a_message) {</span>
+<span class="lineNum">   17112 </span><span class="lineNoCov">          0 :   }</span>
 <a name="17113"><span class="lineNum">   17113 </span>            : </a>
 <span class="lineNum">   17114 </span>            :   // Gets the outcome of the test part.
-<span class="lineNum">   17115 </span><span class="lineCov">         14 :   Type type() const { return type_; }</span>
+<span class="lineNum">   17115 </span><span class="lineNoCov">          0 :   Type type() const { return type_; }</span>
 <span class="lineNum">   17116 </span>            : 
 <a name="17117"><span class="lineNum">   17117 </span>            :   // Gets the name of the source file where the test part took place, or</a>
 <span class="lineNum">   17118 </span>            :   // NULL if it's unknown.
-<span class="lineNum">   17119 </span><span class="lineCov">          7 :   const char* file_name() const {</span>
-<span class="lineNum">   17120 </span><span class="lineCov">          7 :     return file_name_.empty() ? NULL : file_name_.c_str();</span>
+<span class="lineNum">   17119 </span><span class="lineNoCov">          0 :   const char* file_name() const {</span>
+<span class="lineNum">   17120 </span><span class="lineNoCov">          0 :     return file_name_.empty() ? NULL : file_name_.c_str();</span>
 <span class="lineNum">   17121 </span>            :   }
 <span class="lineNum">   17122 </span>            : 
 <a name="17123"><span class="lineNum">   17123 </span>            :   // Gets the line in the source file where the test part took place,</a>
 <span class="lineNum">   17124 </span>            :   // or -1 if it's unknown.
-<span class="lineNum">   17125 </span><span class="lineCov">          7 :   int line_number() const { return line_number_; }</span>
+<span class="lineNum">   17125 </span><span class="lineNoCov">          0 :   int line_number() const { return line_number_; }</span>
 <a name="17126"><span class="lineNum">   17126 </span>            : </a>
 <span class="lineNum">   17127 </span>            :   // Gets the summary of the failure message.
 <span class="lineNum">   17128 </span><span class="lineNoCov">          0 :   const char* summary() const { return summary_.c_str(); }</span>
 <a name="17129"><span class="lineNum">   17129 </span>            : </a>
 <span class="lineNum">   17130 </span>            :   // Gets the message associated with the test part.
-<span class="lineNum">   17131 </span><span class="lineCov">          7 :   const char* message() const { return message_.c_str(); }</span>
+<span class="lineNum">   17131 </span><span class="lineNoCov">          0 :   const char* message() const { return message_.c_str(); }</span>
 <span class="lineNum">   17132 </span>            : 
 <span class="lineNum">   17133 </span>            :   // Returns true iff the test part passed.
 <span class="lineNum">   17134 </span>            :   bool passed() const { return type_ == kSuccess; }
 <a name="17135"><span class="lineNum">   17135 </span>            : </a>
 <span class="lineNum">   17136 </span>            :   // Returns true iff the test part failed.
-<span class="lineNum">   17137 </span><span class="lineCov">         60 :   bool failed() const { return type_ != kSuccess; }</span>
+<span class="lineNum">   17137 </span><span class="lineNoCov">          0 :   bool failed() const { return type_ != kSuccess; }</span>
 <a name="17138"><span class="lineNum">   17138 </span>            : </a>
 <span class="lineNum">   17139 </span>            :   // Returns true iff the test part non-fatally failed.
 <span class="lineNum">   17140 </span><span class="lineNoCov">          0 :   bool nonfatally_failed() const { return type_ == kNonFatalFailure; }</span>
@@ -17248,7 +17248,7 @@
 <span class="lineNum">   17186 </span>            : };
 <a name="17187"><span class="lineNum">   17187 </span>            : </a>
 <span class="lineNum">   17188 </span>            : // This interface knows how to report a test part result.
-<a name="17189"><span class="lineNum">   17189 </span><span class="lineCov">         20 : class TestPartResultReporterInterface {</span></a>
+<a name="17189"><span class="lineNum">   17189 </span><span class="lineCov">          2 : class TestPartResultReporterInterface {</span></a>
 <span class="lineNum">   17190 </span>            :  public:
 <span class="lineNum">   17191 </span><span class="lineNoCov">          0 :   virtual ~TestPartResultReporterInterface() {}</span>
 <span class="lineNum">   17192 </span>            : 
@@ -17728,16 +17728,16 @@
 <span class="lineNum">   17666 </span>            : //   Expected: Foo() is even
 <a name="17667"><span class="lineNum">   17667 </span>            : //     Actual: it's 5</a>
 <span class="lineNum">   17668 </span>            : //
-<span class="lineNum">   17669 </span><span class="lineCov">      70091 : class GTEST_API_ AssertionResult {</span>
+<span class="lineNum">   17669 </span><span class="lineCov">      70090 : class GTEST_API_ AssertionResult {</span>
 <span class="lineNum">   17670 </span>            :  public:
 <span class="lineNum">   17671 </span>            :   // Copy constructor.
 <span class="lineNum">   17672 </span>            :   // Used in EXPECT_TRUE/FALSE(assertion_result).
 <a name="17673"><span class="lineNum">   17673 </span>            :   AssertionResult(const AssertionResult&amp; other);</a>
 <span class="lineNum">   17674 </span>            :   // Used in the EXPECT_TRUE/FALSE(bool_expression).
-<span class="lineNum">   17675 </span><span class="lineCov">      70089 :   explicit AssertionResult(bool success) : success_(success) {}</span>
+<span class="lineNum">   17675 </span><span class="lineCov">      70090 :   explicit AssertionResult(bool success) : success_(success) {}</span>
 <a name="17676"><span class="lineNum">   17676 </span>            : </a>
 <span class="lineNum">   17677 </span>            :   // Returns true iff the assertion succeeded.
-<span class="lineNum">   17678 </span><span class="lineCov">      70089 :   operator bool() const { return success_; }  // NOLINT</span>
+<span class="lineNum">   17678 </span><span class="lineCov">      70090 :   operator bool() const { return success_; }  // NOLINT</span>
 <span class="lineNum">   17679 </span>            : 
 <span class="lineNum">   17680 </span>            :   // Returns the assertion's negation. Used with EXPECT/ASSERT_FALSE.
 <span class="lineNum">   17681 </span>            :   AssertionResult operator!() const;
@@ -17746,17 +17746,17 @@
 <span class="lineNum">   17684 </span>            :   // use it when they fail (i.e., the predicate's outcome doesn't match the
 <a name="17685"><span class="lineNum">   17685 </span>            :   // assertion's expectation). When nothing has been streamed into the</a>
 <span class="lineNum">   17686 </span>            :   // object, returns an empty string.
-<span class="lineNum">   17687 </span><span class="lineCov">          2 :   const char* message() const {</span>
-<span class="lineNum">   17688 </span><span class="lineCov">          2 :     return message_.get() != NULL ?  message_-&gt;c_str() : &quot;&quot;;</span>
+<span class="lineNum">   17687 </span><span class="lineNoCov">          0 :   const char* message() const {</span>
+<span class="lineNum">   17688 </span><span class="lineNoCov">          0 :     return message_.get() != NULL ?  message_-&gt;c_str() : &quot;&quot;;</span>
 <span class="lineNum">   17689 </span>            :   }
 <a name="17690"><span class="lineNum">   17690 </span>            :   // TODO(vladl@google.com): Remove this after making sure no clients use it.</a>
 <span class="lineNum">   17691 </span>            :   // Deprecated; please use message() instead.
-<span class="lineNum">   17692 </span><span class="lineCov">          2 :   const char* failure_message() const { return message(); }</span>
+<span class="lineNum">   17692 </span><span class="lineNoCov">          0 :   const char* failure_message() const { return message(); }</span>
 <a name="17693"><span class="lineNum">   17693 </span>            : </a>
 <span class="lineNum">   17694 </span>            :   // Streams a custom failure message into this object.
-<span class="lineNum">   17695 </span><span class="lineCov">          7 :   template &lt;typename T&gt; AssertionResult&amp; operator&lt;&lt;(const T&amp; value) {</span>
-<span class="lineNum">   17696 </span><span class="lineCov">          7 :     AppendMessage(Message() &lt;&lt; value);</span>
-<span class="lineNum">   17697 </span><span class="lineCov">          7 :     return *this;</span>
+<span class="lineNum">   17695 </span><span class="lineNoCov">          0 :   template &lt;typename T&gt; AssertionResult&amp; operator&lt;&lt;(const T&amp; value) {</span>
+<span class="lineNum">   17696 </span><span class="lineNoCov">          0 :     AppendMessage(Message() &lt;&lt; value);</span>
+<span class="lineNum">   17697 </span><span class="lineNoCov">          0 :     return *this;</span>
 <span class="lineNum">   17698 </span>            :   }
 <span class="lineNum">   17699 </span>            : 
 <span class="lineNum">   17700 </span>            :   // Allows streaming basic output manipulators such as endl or flush into
@@ -17769,11 +17769,11 @@
 <span class="lineNum">   17707 </span>            : 
 <a name="17708"><span class="lineNum">   17708 </span>            :  private:</a>
 <span class="lineNum">   17709 </span>            :   // Appends the contents of message to message_.
-<span class="lineNum">   17710 </span><span class="lineCov">          2 :   void AppendMessage(const Message&amp; a_message) {</span>
-<span class="lineNum">   17711 </span><span class="lineCov">          2 :     if (message_.get() == NULL)</span>
-<span class="lineNum">   17712 </span><span class="lineCov">          2 :       message_.reset(new ::std::string);</span>
-<span class="lineNum">   17713 </span><span class="lineCov">          2 :     message_-&gt;append(a_message.GetString().c_str());</span>
-<span class="lineNum">   17714 </span><span class="lineCov">          2 :   }</span>
+<span class="lineNum">   17710 </span><span class="lineNoCov">          0 :   void AppendMessage(const Message&amp; a_message) {</span>
+<span class="lineNum">   17711 </span><span class="lineNoCov">          0 :     if (message_.get() == NULL)</span>
+<span class="lineNum">   17712 </span><span class="lineNoCov">          0 :       message_.reset(new ::std::string);</span>
+<span class="lineNum">   17713 </span><span class="lineNoCov">          0 :     message_-&gt;append(a_message.GetString().c_str());</span>
+<span class="lineNum">   17714 </span><span class="lineNoCov">          0 :   }</span>
 <span class="lineNum">   17715 </span>            : 
 <span class="lineNum">   17716 </span>            :   // Stores result of the assertion predicate.
 <span class="lineNum">   17717 </span>            :   bool success_;
@@ -17901,7 +17901,7 @@
 <span class="lineNum">   17839 </span>            : 
 <a name="17840"><span class="lineNum">   17840 </span>            :   // Deletes self.  We deliberately pick an unusual name for this</a>
 <span class="lineNum">   17841 </span>            :   // internal method to avoid clashing with names used in user TESTs.
-<span class="lineNum">   17842 </span><span class="lineCov">        639 :   void DeleteSelf_() { delete this; }</span>
+<span class="lineNum">   17842 </span><span class="lineCov">         65 :   void DeleteSelf_() { delete this; }</span>
 <span class="lineNum">   17843 </span>            : 
 <span class="lineNum">   17844 </span>            :   // Uses a GTestFlagSaver to save and restore all Google Test flags.
 <span class="lineNum">   17845 </span>            :   const internal::GTestFlagSaver* const gtest_flag_saver_;
@@ -17988,7 +17988,7 @@
 <span class="lineNum">   17926 </span>            :   int test_property_count() const;
 <a name="17927"><span class="lineNum">   17927 </span>            : </a>
 <span class="lineNum">   17928 </span>            :   // Returns true iff the test passed (i.e. no test part failed).
-<span class="lineNum">   17929 </span><span class="lineCov">       1662 :   bool Passed() const { return !Failed(); }</span>
+<span class="lineNum">   17929 </span><span class="lineCov">        130 :   bool Passed() const { return !Failed(); }</span>
 <span class="lineNum">   17930 </span>            : 
 <span class="lineNum">   17931 </span>            :   // Returns true iff the test failed.
 <span class="lineNum">   17932 </span>            :   bool Failed() const;
@@ -18000,7 +18000,7 @@
 <span class="lineNum">   17938 </span>            :   bool HasNonfatalFailure() const;
 <a name="17939"><span class="lineNum">   17939 </span>            : </a>
 <span class="lineNum">   17940 </span>            :   // Returns the elapsed time, in milliseconds.
-<span class="lineNum">   17941 </span><span class="lineCov">        639 :   TimeInMillis elapsed_time() const { return elapsed_time_; }</span>
+<span class="lineNum">   17941 </span><span class="lineCov">         65 :   TimeInMillis elapsed_time() const { return elapsed_time_; }</span>
 <span class="lineNum">   17942 </span>            : 
 <span class="lineNum">   17943 </span>            :   // Returns the i-th test part result among all the results. i can range
 <span class="lineNum">   17944 </span>            :   // from 0 to test_property_count() - 1. If i is not in that range, aborts
@@ -18033,7 +18033,7 @@
 <span class="lineNum">   17971 </span>            :   }
 <a name="17972"><span class="lineNum">   17972 </span>            : </a>
 <span class="lineNum">   17973 </span>            :   // Sets the elapsed time.
-<span class="lineNum">   17974 </span><span class="lineCov">        639 :   void set_elapsed_time(TimeInMillis elapsed) { elapsed_time_ = elapsed; }</span>
+<span class="lineNum">   17974 </span><span class="lineCov">         65 :   void set_elapsed_time(TimeInMillis elapsed) { elapsed_time_ = elapsed; }</span>
 <span class="lineNum">   17975 </span>            : 
 <span class="lineNum">   17976 </span>            :   // Adds a test property to the list. The property is validated and may add
 <span class="lineNum">   17977 </span>            :   // a non-fatal failure if invalid (e.g., if it conflicts with reserved
@@ -18100,25 +18100,25 @@
 <span class="lineNum">   18038 </span>            :   ~TestInfo();
 <a name="18039"><span class="lineNum">   18039 </span>            : </a>
 <span class="lineNum">   18040 </span>            :   // Returns the test case name.
-<span class="lineNum">   18041 </span><span class="lineCov">       1917 :   const char* test_case_name() const { return test_case_name_.c_str(); }</span>
+<span class="lineNum">   18041 </span><span class="lineCov">        195 :   const char* test_case_name() const { return test_case_name_.c_str(); }</span>
 <a name="18042"><span class="lineNum">   18042 </span>            : </a>
 <span class="lineNum">   18043 </span>            :   // Returns the test name.
-<span class="lineNum">   18044 </span><span class="lineCov">       3201 :   const char* name() const { return name_.c_str(); }</span>
+<span class="lineNum">   18044 </span><span class="lineCov">        325 :   const char* name() const { return name_.c_str(); }</span>
 <span class="lineNum">   18045 </span>            : 
 <a name="18046"><span class="lineNum">   18046 </span>            :   // Returns the name of the parameter type, or NULL if this is not a typed</a>
 <span class="lineNum">   18047 </span>            :   // or a type-parameterized test.
-<span class="lineNum">   18048 </span><span class="lineCov">        651 :   const char* type_param() const {</span>
-<span class="lineNum">   18049 </span><span class="lineCov">        651 :     if (type_param_.get() != NULL)</span>
+<span class="lineNum">   18048 </span><span class="lineCov">         65 :   const char* type_param() const {</span>
+<span class="lineNum">   18049 </span><span class="lineCov">         65 :     if (type_param_.get() != NULL)</span>
 <span class="lineNum">   18050 </span><span class="lineNoCov">          0 :       return type_param_-&gt;c_str();</span>
-<span class="lineNum">   18051 </span><span class="lineCov">        651 :     return NULL;</span>
+<span class="lineNum">   18051 </span><span class="lineCov">         65 :     return NULL;</span>
 <span class="lineNum">   18052 </span>            :   }
 <span class="lineNum">   18053 </span>            : 
 <a name="18054"><span class="lineNum">   18054 </span>            :   // Returns the text representation of the value parameter, or NULL if this</a>
 <span class="lineNum">   18055 </span>            :   // is not a value-parameterized test.
-<span class="lineNum">   18056 </span><span class="lineCov">         12 :   const char* value_param() const {</span>
-<span class="lineNum">   18057 </span><span class="lineCov">         12 :     if (value_param_.get() != NULL)</span>
+<span class="lineNum">   18056 </span><span class="lineNoCov">          0 :   const char* value_param() const {</span>
+<span class="lineNum">   18057 </span><span class="lineNoCov">          0 :     if (value_param_.get() != NULL)</span>
 <span class="lineNum">   18058 </span><span class="lineNoCov">          0 :       return value_param_-&gt;c_str();</span>
-<span class="lineNum">   18059 </span><span class="lineCov">         12 :     return NULL;</span>
+<span class="lineNum">   18059 </span><span class="lineNoCov">          0 :     return NULL;</span>
 <span class="lineNum">   18060 </span>            :   }
 <span class="lineNum">   18061 </span>            : 
 <span class="lineNum">   18062 </span>            :   // Returns true if this test should run, that is if the test is not
@@ -18137,18 +18137,18 @@
 <span class="lineNum">   18075 </span>            :   //
 <a name="18076"><span class="lineNum">   18076 </span>            :   // For example, *A*:Foo.* is a filter that matches any string that</a>
 <span class="lineNum">   18077 </span>            :   // contains the character 'A' or starts with &quot;Foo.&quot;.
-<span class="lineNum">   18078 </span><span class="lineCov">       6648 :   bool should_run() const { return should_run_; }</span>
+<span class="lineNum">   18078 </span><span class="lineCov">        520 :   bool should_run() const { return should_run_; }</span>
 <a name="18079"><span class="lineNum">   18079 </span>            : </a>
 <span class="lineNum">   18080 </span>            :   // Returns true iff this test will appear in the XML report.
-<span class="lineNum">   18081 </span><span class="lineCov">        639 :   bool is_reportable() const {</span>
+<span class="lineNum">   18081 </span><span class="lineCov">         65 :   bool is_reportable() const {</span>
 <span class="lineNum">   18082 </span>            :     // For now, the XML report includes all tests matching the filter.
 <span class="lineNum">   18083 </span>            :     // In the future, we may trim tests that are excluded because of
 <span class="lineNum">   18084 </span>            :     // sharding.
-<span class="lineNum">   18085 </span><span class="lineCov">        639 :     return matches_filter_;</span>
+<span class="lineNum">   18085 </span><span class="lineCov">         65 :     return matches_filter_;</span>
 <span class="lineNum">   18086 </span>            :   }
 <a name="18087"><span class="lineNum">   18087 </span>            : </a>
 <span class="lineNum">   18088 </span>            :   // Returns the result of the test.
-<span class="lineNum">   18089 </span><span class="lineCov">       6009 :   const TestResult* result() const { return &amp;result_; }</span>
+<span class="lineNum">   18089 </span><span class="lineCov">        455 :   const TestResult* result() const { return &amp;result_; }</span>
 <span class="lineNum">   18090 </span>            : 
 <span class="lineNum">   18091 </span>            :  private:
 <span class="lineNum">   18092 </span>            : #if GTEST_HAS_DEATH_TEST
@@ -18187,9 +18187,9 @@
 <span class="lineNum">   18125 </span>            :   // deletes it.
 <a name="18126"><span class="lineNum">   18126 </span>            :   void Run();</a>
 <span class="lineNum">   18127 </span>            : 
-<span class="lineNum">   18128 </span><span class="lineCov">        639 :   static void ClearTestResult(TestInfo* test_info) {</span>
-<span class="lineNum">   18129 </span><span class="lineCov">        639 :     test_info-&gt;result_.Clear();</span>
-<span class="lineNum">   18130 </span><span class="lineCov">        639 :   }</span>
+<span class="lineNum">   18128 </span><span class="lineCov">         65 :   static void ClearTestResult(TestInfo* test_info) {</span>
+<span class="lineNum">   18129 </span><span class="lineCov">         65 :     test_info-&gt;result_.Clear();</span>
+<span class="lineNum">   18130 </span><span class="lineCov">         65 :   }</span>
 <span class="lineNum">   18131 </span>            : 
 <span class="lineNum">   18132 </span>            :   // These fields are immutable properties of the test.
 <span class="lineNum">   18133 </span>            :   const std::string test_case_name_;     // Test case name
@@ -18240,18 +18240,18 @@
 <span class="lineNum">   18178 </span>            :   virtual ~TestCase();
 <a name="18179"><span class="lineNum">   18179 </span>            : </a>
 <span class="lineNum">   18180 </span>            :   // Gets the name of the TestCase.
-<span class="lineNum">   18181 </span><span class="lineCov">        665 :   const char* name() const { return name_.c_str(); }</span>
+<span class="lineNum">   18181 </span><span class="lineCov">         67 :   const char* name() const { return name_.c_str(); }</span>
 <span class="lineNum">   18182 </span>            : 
 <a name="18183"><span class="lineNum">   18183 </span>            :   // Returns the name of the parameter type, or NULL if this is not a</a>
 <span class="lineNum">   18184 </span>            :   // type-parameterized test case.
-<span class="lineNum">   18185 </span><span class="lineCov">         10 :   const char* type_param() const {</span>
-<span class="lineNum">   18186 </span><span class="lineCov">         10 :     if (type_param_.get() != NULL)</span>
+<span class="lineNum">   18185 </span><span class="lineCov">          1 :   const char* type_param() const {</span>
+<span class="lineNum">   18186 </span><span class="lineCov">          1 :     if (type_param_.get() != NULL)</span>
 <span class="lineNum">   18187 </span><span class="lineNoCov">          0 :       return type_param_-&gt;c_str();</span>
-<span class="lineNum">   18188 </span><span class="lineCov">         10 :     return NULL;</span>
+<span class="lineNum">   18188 </span><span class="lineCov">          1 :     return NULL;</span>
 <span class="lineNum">   18189 </span>            :   }
 <a name="18190"><span class="lineNum">   18190 </span>            : </a>
 <span class="lineNum">   18191 </span>            :   // Returns true if any test in this test case should run.
-<span class="lineNum">   18192 </span><span class="lineCov">        685 :   bool should_run() const { return should_run_; }</span>
+<span class="lineNum">   18192 </span><span class="lineCov">         69 :   bool should_run() const { return should_run_; }</span>
 <span class="lineNum">   18193 </span>            : 
 <span class="lineNum">   18194 </span>            :   // Gets the number of successful tests in this test case.
 <span class="lineNum">   18195 </span>            :   int successful_test_count() const;
@@ -18278,10 +18278,10 @@
 <span class="lineNum">   18216 </span><span class="lineNoCov">          0 :   bool Passed() const { return !Failed(); }</span>
 <a name="18217"><span class="lineNum">   18217 </span>            : </a>
 <span class="lineNum">   18218 </span>            :   // Returns true iff the test case failed.
-<span class="lineNum">   18219 </span><span class="lineCov">         20 :   bool Failed() const { return failed_test_count() &gt; 0; }</span>
+<span class="lineNum">   18219 </span><span class="lineCov">          2 :   bool Failed() const { return failed_test_count() &gt; 0; }</span>
 <a name="18220"><span class="lineNum">   18220 </span>            : </a>
 <span class="lineNum">   18221 </span>            :   // Returns the elapsed time, in milliseconds.
-<span class="lineNum">   18222 </span><span class="lineCov">         10 :   TimeInMillis elapsed_time() const { return elapsed_time_; }</span>
+<span class="lineNum">   18222 </span><span class="lineCov">          1 :   TimeInMillis elapsed_time() const { return elapsed_time_; }</span>
 <span class="lineNum">   18223 </span>            : 
 <span class="lineNum">   18224 </span>            :   // Returns the i-th test among all the tests. i can range from 0 to
 <span class="lineNum">   18225 </span>            :   // total_test_count() - 1. If i is not in that range, returns NULL.
@@ -18296,11 +18296,11 @@
 <span class="lineNum">   18234 </span>            :   friend class internal::UnitTestImpl;
 <a name="18235"><span class="lineNum">   18235 </span>            : </a>
 <span class="lineNum">   18236 </span>            :   // Gets the (mutable) vector of TestInfos in this TestCase.
-<span class="lineNum">   18237 </span><span class="lineCov">       1288 :   std::vector&lt;TestInfo*&gt;&amp; test_info_list() { return test_info_list_; }</span>
+<span class="lineNum">   18237 </span><span class="lineCov">        131 :   std::vector&lt;TestInfo*&gt;&amp; test_info_list() { return test_info_list_; }</span>
 <a name="18238"><span class="lineNum">   18238 </span>            : </a>
 <span class="lineNum">   18239 </span>            :   // Gets the (immutable) vector of TestInfos in this TestCase.
-<span class="lineNum">   18240 </span><span class="lineCov">        639 :   const std::vector&lt;TestInfo*&gt;&amp; test_info_list() const {</span>
-<span class="lineNum">   18241 </span><span class="lineCov">        639 :     return test_info_list_;</span>
+<span class="lineNum">   18240 </span><span class="lineCov">         65 :   const std::vector&lt;TestInfo*&gt;&amp; test_info_list() const {</span>
+<span class="lineNum">   18241 </span><span class="lineCov">         65 :     return test_info_list_;</span>
 <span class="lineNum">   18242 </span>            :   }
 <span class="lineNum">   18243 </span>            : 
 <span class="lineNum">   18244 </span>            :   // Returns the i-th test among all the tests. i can range from 0 to
@@ -18308,7 +18308,7 @@
 <span class="lineNum">   18246 </span>            :   TestInfo* GetMutableTestInfo(int i);
 <a name="18247"><span class="lineNum">   18247 </span>            : </a>
 <span class="lineNum">   18248 </span>            :   // Sets the should_run member.
-<span class="lineNum">   18249 </span><span class="lineCov">        649 :   void set_should_run(bool should) { should_run_ = should; }</span>
+<span class="lineNum">   18249 </span><span class="lineCov">         66 :   void set_should_run(bool should) { should_run_ = should; }</span>
 <span class="lineNum">   18250 </span>            : 
 <span class="lineNum">   18251 </span>            :   // Adds a TestInfo to this test case.  Will delete the TestInfo upon
 <span class="lineNum">   18252 </span>            :   // destruction of the TestCase object.
@@ -18318,35 +18318,35 @@
 <span class="lineNum">   18256 </span>            :   void ClearResult();
 <a name="18257"><span class="lineNum">   18257 </span>            : </a>
 <span class="lineNum">   18258 </span>            :   // Clears the results of all tests in the given test case.
-<span class="lineNum">   18259 </span><span class="lineCov">         10 :   static void ClearTestCaseResult(TestCase* test_case) {</span>
-<span class="lineNum">   18260 </span><span class="lineCov">         10 :     test_case-&gt;ClearResult();</span>
-<span class="lineNum">   18261 </span><span class="lineCov">         10 :   }</span>
+<span class="lineNum">   18259 </span><span class="lineCov">          1 :   static void ClearTestCaseResult(TestCase* test_case) {</span>
+<span class="lineNum">   18260 </span><span class="lineCov">          1 :     test_case-&gt;ClearResult();</span>
+<span class="lineNum">   18261 </span><span class="lineCov">          1 :   }</span>
 <span class="lineNum">   18262 </span>            : 
 <span class="lineNum">   18263 </span>            :   // Runs every test in this TestCase.
 <span class="lineNum">   18264 </span>            :   void Run();
 <span class="lineNum">   18265 </span>            : 
 <a name="18266"><span class="lineNum">   18266 </span>            :   // Runs SetUpTestCase() for this TestCase.  This wrapper is needed</a>
 <span class="lineNum">   18267 </span>            :   // for catching exceptions thrown from SetUpTestCase().
-<span class="lineNum">   18268 </span><span class="lineCov">         10 :   void RunSetUpTestCase() { (*set_up_tc_)(); }</span>
+<span class="lineNum">   18268 </span><span class="lineCov">          1 :   void RunSetUpTestCase() { (*set_up_tc_)(); }</span>
 <span class="lineNum">   18269 </span>            : 
 <a name="18270"><span class="lineNum">   18270 </span>            :   // Runs TearDownTestCase() for this TestCase.  This wrapper is</a>
 <span class="lineNum">   18271 </span>            :   // needed for catching exceptions thrown from TearDownTestCase().
-<span class="lineNum">   18272 </span><span class="lineCov">         10 :   void RunTearDownTestCase() { (*tear_down_tc_)(); }</span>
+<span class="lineNum">   18272 </span><span class="lineCov">          1 :   void RunTearDownTestCase() { (*tear_down_tc_)(); }</span>
 <a name="18273"><span class="lineNum">   18273 </span>            : </a>
 <span class="lineNum">   18274 </span>            :   // Returns true iff test passed.
-<span class="lineNum">   18275 </span><span class="lineCov">        639 :   static bool TestPassed(const TestInfo* test_info) {</span>
-<span class="lineNum">   18276 </span><span class="lineCov">        639 :     return test_info-&gt;should_run() &amp;&amp; test_info-&gt;result()-&gt;Passed();</span>
+<span class="lineNum">   18275 </span><span class="lineCov">         65 :   static bool TestPassed(const TestInfo* test_info) {</span>
+<span class="lineNum">   18276 </span><span class="lineCov">         65 :     return test_info-&gt;should_run() &amp;&amp; test_info-&gt;result()-&gt;Passed();</span>
 <span class="lineNum">   18277 </span>            :   }
 <a name="18278"><span class="lineNum">   18278 </span>            : </a>
 <span class="lineNum">   18279 </span>            :   // Returns true iff test failed.
-<span class="lineNum">   18280 </span><span class="lineCov">       3069 :   static bool TestFailed(const TestInfo* test_info) {</span>
-<span class="lineNum">   18281 </span><span class="lineCov">       3069 :     return test_info-&gt;should_run() &amp;&amp; test_info-&gt;result()-&gt;Failed();</span>
+<span class="lineNum">   18280 </span><span class="lineCov">        195 :   static bool TestFailed(const TestInfo* test_info) {</span>
+<span class="lineNum">   18281 </span><span class="lineCov">        195 :     return test_info-&gt;should_run() &amp;&amp; test_info-&gt;result()-&gt;Failed();</span>
 <span class="lineNum">   18282 </span>            :   }
 <span class="lineNum">   18283 </span>            : 
 <a name="18284"><span class="lineNum">   18284 </span>            :   // Returns true iff the test is disabled and will be reported in the XML</a>
 <span class="lineNum">   18285 </span>            :   // report.
-<span class="lineNum">   18286 </span><span class="lineCov">        639 :   static bool TestReportableDisabled(const TestInfo* test_info) {</span>
-<span class="lineNum">   18287 </span><span class="lineCov">        639 :     return test_info-&gt;is_reportable() &amp;&amp; test_info-&gt;is_disabled_;</span>
+<span class="lineNum">   18286 </span><span class="lineCov">         65 :   static bool TestReportableDisabled(const TestInfo* test_info) {</span>
+<span class="lineNum">   18287 </span><span class="lineCov">         65 :     return test_info-&gt;is_reportable() &amp;&amp; test_info-&gt;is_disabled_;</span>
 <span class="lineNum">   18288 </span>            :   }
 <a name="18289"><span class="lineNum">   18289 </span>            : </a>
 <span class="lineNum">   18290 </span>            :   // Returns true iff test is disabled.
@@ -18360,8 +18360,8 @@
 <span class="lineNum">   18298 </span>            :   }
 <a name="18299"><span class="lineNum">   18299 </span>            : </a>
 <span class="lineNum">   18300 </span>            :   // Returns true if the given test should run.
-<span class="lineNum">   18301 </span><span class="lineCov">       2556 :   static bool ShouldRunTest(const TestInfo* test_info) {</span>
-<span class="lineNum">   18302 </span><span class="lineCov">       2556 :     return test_info-&gt;should_run();</span>
+<span class="lineNum">   18301 </span><span class="lineCov">        260 :   static bool ShouldRunTest(const TestInfo* test_info) {</span>
+<span class="lineNum">   18302 </span><span class="lineCov">        260 :     return test_info-&gt;should_run();</span>
 <span class="lineNum">   18303 </span>            :   }
 <span class="lineNum">   18304 </span>            : 
 <span class="lineNum">   18305 </span>            :   // Shuffles the tests in this test case.
@@ -18431,7 +18431,7 @@
 <span class="lineNum">   18369 </span>            : 
 <a name="18370"><span class="lineNum">   18370 </span>            : // The interface for tracing execution of tests. The methods are organized in</a>
 <span class="lineNum">   18371 </span>            : // the order the corresponding events are fired.
-<a name="18372"><span class="lineNum">   18372 </span><span class="lineCov">         20 : class TestEventListener {</span></a>
+<a name="18372"><span class="lineNum">   18372 </span><span class="lineCov">          2 : class TestEventListener {</span></a>
 <span class="lineNum">   18373 </span>            :  public:
 <span class="lineNum">   18374 </span><span class="lineNoCov">          0 :   virtual ~TestEventListener() {}</span>
 <span class="lineNum">   18375 </span>            : 
@@ -18727,8 +18727,8 @@
 <span class="lineNum">   18665 </span>            :   TestCase* GetMutableTestCase(int i);
 <a name="18666"><span class="lineNum">   18666 </span>            : </a>
 <a name="18667"><span class="lineNum">   18667 </span>            :   // Accessors for the implementation object.</a>
-<span class="lineNum">   18668 </span><span class="lineCov">       7765 :   internal::UnitTestImpl* impl() { return impl_; }</span>
-<span class="lineNum">   18669 </span><span class="lineCov">        120 :   const internal::UnitTestImpl* impl() const { return impl_; }</span>
+<span class="lineNum">   18668 </span><span class="lineCov">        789 :   internal::UnitTestImpl* impl() { return impl_; }</span>
+<span class="lineNum">   18669 </span><span class="lineCov">          9 :   const internal::UnitTestImpl* impl() const { return impl_; }</span>
 <span class="lineNum">   18670 </span>            : 
 <span class="lineNum">   18671 </span>            :   // These classes and funcions are friends as they need to access private
 <span class="lineNum">   18672 </span>            :   // members of UnitTest.
@@ -18829,8 +18829,8 @@
 <span class="lineNum">   18767 </span>            : template &lt;typename ToPrint, typename OtherOperand&gt;
 <a name="18768"><span class="lineNum">   18768 </span>            : class FormatForComparison {</a>
 <span class="lineNum">   18769 </span>            :  public:
-<span class="lineNum">   18770 </span><span class="lineCov">          4 :   static ::std::string Format(const ToPrint&amp; value) {</span>
-<span class="lineNum">   18771 </span><span class="lineCov">          4 :     return ::testing::PrintToString(value);</span>
+<span class="lineNum">   18770 </span><span class="lineNoCov">          0 :   static ::std::string Format(const ToPrint&amp; value) {</span>
+<span class="lineNum">   18771 </span><span class="lineNoCov">          0 :     return ::testing::PrintToString(value);</span>
 <span class="lineNum">   18772 </span>            :   }
 <span class="lineNum">   18773 </span>            : };
 <span class="lineNum">   18774 </span>            : 
@@ -18903,9 +18903,9 @@
 <span class="lineNum">   18841 </span>            : //
 <a name="18842"><span class="lineNum">   18842 </span>            : // INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.</a>
 <span class="lineNum">   18843 </span>            : template &lt;typename T1, typename T2&gt;
-<span class="lineNum">   18844 </span><span class="lineCov">          4 : std::string FormatForComparisonFailureMessage(</span>
+<span class="lineNum">   18844 </span><span class="lineNoCov">          0 : std::string FormatForComparisonFailureMessage(</span>
 <span class="lineNum">   18845 </span>            :     const T1&amp; value, const T2&amp; /* other_operand */) {
-<span class="lineNum">   18846 </span><span class="lineCov">          4 :   return FormatForComparison&lt;T1, T2&gt;::Format(value);</span>
+<span class="lineNum">   18846 </span><span class="lineNoCov">          0 :   return FormatForComparison&lt;T1, T2&gt;::Format(value);</span>
 <span class="lineNum">   18847 </span>            : }
 <span class="lineNum">   18848 </span>            : 
 <a name="18849"><span class="lineNum">   18849 </span>            : // The helper function for {ASSERT|EXPECT}_EQ.</a>
@@ -18921,7 +18921,7 @@
 <span class="lineNum">   18859 </span>            : #endif
 <span class="lineNum">   18860 </span>            : 
 <span class="lineNum">   18861 </span><span class="lineCov">      10052 :   if (expected == actual) {</span>
-<span class="lineNum">   18862 </span><span class="lineCov">      10050 :     return AssertionSuccess();</span>
+<span class="lineNum">   18862 </span><span class="lineCov">      10052 :     return AssertionSuccess();</span>
 <span class="lineNum">   18863 </span>            :   }
 <span class="lineNum">   18864 </span>            : 
 <span class="lineNum">   18865 </span>            : #ifdef _MSC_VER
@@ -18932,7 +18932,7 @@
 <span class="lineNum">   18870 </span>            :                    actual_expression,
 <span class="lineNum">   18871 </span>            :                    FormatForComparisonFailureMessage(expected, actual),
 <span class="lineNum">   18872 </span>            :                    FormatForComparisonFailureMessage(actual, expected),
-<span class="lineNum">   18873 </span><span class="lineCov">          2 :                    false);</span>
+<span class="lineNum">   18873 </span><span class="lineNoCov">          0 :                    false);</span>
 <span class="lineNum">   18874 </span>            : }
 <span class="lineNum">   18875 </span>            : 
 <span class="lineNum">   18876 </span>            : // With this overloaded version, we allow anonymous enums to be used
@@ -19213,12 +19213,12 @@
 <span class="lineNum">   19151 </span>            :   // be as small as possible.  This is important because gcc is incapable of
 <a name="19152"><span class="lineNum">   19152 </span>            :   // re-using stack space even for temporary variables, so every EXPECT_EQ</a>
 <a name="19153"><span class="lineNum">   19153 </span>            :   // reserves stack space for another AssertHelper.</a>
-<span class="lineNum">   19154 </span><span class="lineCov">          7 :   struct AssertHelperData {</span>
-<span class="lineNum">   19155 </span><span class="lineCov">          7 :     AssertHelperData(TestPartResult::Type t,</span>
+<span class="lineNum">   19154 </span><span class="lineNoCov">          0 :   struct AssertHelperData {</span>
+<span class="lineNum">   19155 </span><span class="lineNoCov">          0 :     AssertHelperData(TestPartResult::Type t,</span>
 <span class="lineNum">   19156 </span>            :                      const char* srcfile,
 <span class="lineNum">   19157 </span>            :                      int line_num,
 <span class="lineNum">   19158 </span>            :                      const char* msg)
-<span class="lineNum">   19159 </span><span class="lineCov">          7 :         : type(t), file(srcfile), line(line_num), message(msg) { }</span>
+<span class="lineNum">   19159 </span><span class="lineNoCov">          0 :         : type(t), file(srcfile), line(line_num), message(msg) { }</span>
 <span class="lineNum">   19160 </span>            : 
 <span class="lineNum">   19161 </span>            :     TestPartResult::Type const type;
 <span class="lineNum">   19162 </span>            :     const char* const file;
@@ -20116,8 +20116,8 @@
 <span class="lineNum">   20054 </span>            : // namespace and has an all-caps name.
 <a name="20055"><span class="lineNum">   20055 </span>            : int RUN_ALL_TESTS() GTEST_MUST_USE_RESULT_;</a>
 <span class="lineNum">   20056 </span>            : 
-<span class="lineNum">   20057 </span><span class="lineCov">         10 : inline int RUN_ALL_TESTS() {</span>
-<span class="lineNum">   20058 </span><span class="lineCov">         10 :   return ::testing::UnitTest::GetInstance()-&gt;Run();</span>
+<span class="lineNum">   20057 </span><span class="lineCov">          1 : inline int RUN_ALL_TESTS() {</span>
+<span class="lineNum">   20058 </span><span class="lineCov">          1 :   return ::testing::UnitTest::GetInstance()-&gt;Run();</span>
 <span class="lineNum">   20059 </span>            : }
 <span class="lineNum">   20060 </span>            : 
 <span class="lineNum">   20061 </span>            : #endif  // GTEST_INCLUDE_GTEST_GTEST_H_

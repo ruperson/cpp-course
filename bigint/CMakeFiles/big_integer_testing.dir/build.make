@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ruperson/Desktop/cpp-course/bigint
+CMAKE_SOURCE_DIR = /home/ruperson/Desktop/cpp-course/cpp-course/bigint
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ruperson/Desktop/cpp-course/bigint
+CMAKE_BINARY_DIR = /home/ruperson/Desktop/cpp-course/cpp-course/bigint
 
 # Include any dependencies generated for this target.
 include CMakeFiles/big_integer_testing.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/big_integer_testing.dir/flags.make
 
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o: big_integer_testing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o -c /home/ruperson/Desktop/cpp-course/bigint/big_integer_testing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o -c /home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer_testing.cpp
 
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/bigint/big_integer_testing.cpp > CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer_testing.cpp > CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.i
 
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/bigint/big_integer_testing.cpp -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer_testing.cpp -o CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.s
 
 CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o.provides.build: CMa
 
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.o: big_integer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.o -c /home/ruperson/Desktop/cpp-course/bigint/big_integer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/big_integer_testing.dir/big_integer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.o -c /home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.cpp
 
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/big_integer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/bigint/big_integer.cpp > CMakeFiles/big_integer_testing.dir/big_integer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.cpp > CMakeFiles/big_integer_testing.dir/big_integer.cpp.i
 
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/big_integer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/bigint/big_integer.cpp -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.cpp -o CMakeFiles/big_integer_testing.dir/big_integer.cpp.s
 
 CMakeFiles/big_integer_testing.dir/big_integer.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/big_integer_testing.dir/big_integer.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o: gtest/gtest-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o -c /home/ruperson/Desktop/cpp-course/bigint/gtest/gtest-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o -c /home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest-all.cc
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/bigint/gtest/gtest-all.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest-all.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.i
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/bigint/gtest/gtest-all.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest-all.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.s
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o.provides.build: CMakeFil
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o: CMakeFiles/big_integer_testing.dir/flags.make
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o: gtest/gtest_main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o -c /home/ruperson/Desktop/cpp-course/bigint/gtest/gtest_main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o -c /home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest_main.cc
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/bigint/gtest/gtest_main.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest_main.cc > CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.i
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/bigint/gtest/gtest_main.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest_main.cc -o CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.s
 
 CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o.requires:
 
@@ -169,7 +169,7 @@ big_integer_testing: CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o
 big_integer_testing: CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o
 big_integer_testing: CMakeFiles/big_integer_testing.dir/build.make
 big_integer_testing: CMakeFiles/big_integer_testing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable big_integer_testing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable big_integer_testing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/big_integer_testing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -189,6 +189,6 @@ CMakeFiles/big_integer_testing.dir/clean:
 .PHONY : CMakeFiles/big_integer_testing.dir/clean
 
 CMakeFiles/big_integer_testing.dir/depend:
-	cd /home/ruperson/Desktop/cpp-course/bigint && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ruperson/Desktop/cpp-course/bigint /home/ruperson/Desktop/cpp-course/bigint /home/ruperson/Desktop/cpp-course/bigint /home/ruperson/Desktop/cpp-course/bigint /home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ruperson/Desktop/cpp-course/cpp-course/bigint && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ruperson/Desktop/cpp-course/cpp-course/bigint /home/ruperson/Desktop/cpp-course/cpp-course/bigint /home/ruperson/Desktop/cpp-course/cpp-course/bigint /home/ruperson/Desktop/cpp-course/cpp-course/bigint /home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/big_integer_testing.dir/depend
 

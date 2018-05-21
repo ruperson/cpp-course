@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ruperson/Desktop/cpp-course/bigint/big_integer.cpp" "/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/big_integer.cpp.o"
-  "/home/ruperson/Desktop/cpp-course/bigint/big_integer_testing.cpp" "/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o"
-  "/home/ruperson/Desktop/cpp-course/bigint/gtest/gtest-all.cc" "/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o"
-  "/home/ruperson/Desktop/cpp-course/bigint/gtest/gtest_main.cc" "/home/ruperson/Desktop/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o"
+  "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer.cpp" "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/big_integer.cpp.o"
+  "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/big_integer_testing.cpp" "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/big_integer_testing.cpp.o"
+  "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest-all.cc" "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/gtest/gtest-all.cc.o"
+  "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/gtest/gtest_main.cc" "/home/ruperson/Desktop/cpp-course/cpp-course/bigint/CMakeFiles/big_integer_testing.dir/gtest/gtest_main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
