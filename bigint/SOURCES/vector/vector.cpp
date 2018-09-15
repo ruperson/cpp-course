@@ -4,21 +4,20 @@ void swap(vector &a, vector &b) {
 	std::swap(a.is_big, b.is_big);
 	std::swap(a._size, b._size);
 	const std::size_t us = sizeof(vector::data);
-	bool tmp[us]; //or char or ..?
+	bool tmp[us]; 
 	std::memcpy(tmp, &a.data, us);
 	std::memcpy(&a.data, &b.data, us);
 	std::memcpy(&b.data, tmp, us);
 }
 
 
-vector::vector(): _size(0), is_big(false) { //why cannot put all here :(
+vector::vector(): _size(0), is_big(false) { 
 	data.small = 0; 
 }
 
 vector::vector(std::size_t new_size, uint32_t x): _size(new_size), is_big(new_size > 1) {
 	if (is_big) {
 		new(&data.big)big_obj(new uint32_t[_size], _size);
-		//std::fill(data.big.data.get(), data.big.data.get() + size, x);
 		memset(data.big.data.get(), x, _size);
 	}
 	else {
@@ -49,8 +48,7 @@ vector& vector::operator=(vector const & rh) {
 vector::vector(const std::initializer_list<uint32_t> &list) : _size(list.size()), is_big(list.size() > 1) {
 	if (is_big) {
 		new(&data.big)big_obj(new uint32_t[_size], _size);
-		//std::copy(list.begin(), list.end(), data.big.data.get());
-		std::memmove(data.big.data.get(), list.begin(), _size * sizeof(uint32_t));
+		std::memcpy(data.big.data.get(), list.begin(), _size * sizeof(uint32_t));
 	}
 	else {
 		data.small = *list.begin();
@@ -64,7 +62,7 @@ vector::~vector() {
 void vector::push_back(uint32_t value) {
     detach();
 
-    if (!is_big && _size == 0) { //changed
+    if (!is_big && _size == 0) { 
         data.small = value;      
     } else {
         if (!is_big || _size == data.big.capacity) {
@@ -131,21 +129,16 @@ void vector::resize(std::size_t new_size, uint32_t value) {
 		this->push_back(value);
 	}
 }
-void vector::detach() {
-	if (!is_big || data.big.data.use_count() == 1) {
-		return;
-	}
+void vector::do_detach() {
 	uint32_t *clone = new uint32_t[data.big.capacity];
-	//std::copy(data.big.data.get(), data.big.data.get() + data.big.capacity, clone);
 	std::memcpy(clone, data.big.data.get(), data.big.capacity * sizeof(uint32_t));
-	data.big.data = std::shared_ptr<uint32_t>(clone, std::default_delete<uint32_t[]>());
+	data.big.data = std::shared_ptr<uint32_t[]>(clone);
 }
 void vector::increase_capasity() {
 	if (is_big) {
 		uint32_t *clone = new uint32_t[2 * data.big.capacity];
-		//std::copy(data.big.data.get(), data.big.data.get() + data.big.capacity, clone);
 		std::memcpy(clone, data.big.data.get(), data.big.capacity * sizeof(uint32_t));
-		data.big.data = std::shared_ptr<uint32_t>(clone, std::default_delete<uint32_t[]>());
+		data.big.data = std::shared_ptr<uint32_t[]>(clone);
 	}
 	else {
 		uint32_t clone = data.small;

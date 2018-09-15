@@ -7,11 +7,11 @@
 
 struct big_obj {
 	size_t capacity;
-	std::shared_ptr<uint32_t> data;
+	std::shared_ptr<uint32_t[]> data;
 	big_obj() : capacity(0), data(nullptr) {}
 	big_obj(uint32_t *p, size_t new_capacity) : 
 		capacity(new_capacity),
-		data (std::shared_ptr<uint32_t>(p, std::default_delete<uint32_t[]>())  ) {}
+		data (std::shared_ptr<uint32_t[]>(p)  ) {}
 };
 
 struct vector {
@@ -39,12 +39,20 @@ private:
 	union container {
 		uint32_t small;
 		big_obj big;
-		container() : small(0) {} ///same shit
-		~container() {}; ///function was implicitly deleted because 'vector::container' has a variant data member 'vector::container::big' with a non-trivial default constructor
+		container() : small(0) {} 
+		~container() {}; 
 	} data;
-	void detach();
+	void detach() __attribute__((always_inline));
+	void do_detach() __attribute__((noinline));
 	void increase_capasity();
 };
 void swap(vector & a, vector &b);
+
+inline void vector::detach() {
+	if (!is_big || data.big.data.use_count() == 1) {
+		return;
+	}
+	do_detach();
+}
 
 #endif //BIGINT_VECTOR
